@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/9/2022 7:13:37 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-87DDV0G"
+  DTS:CreatorName="DESKTOP-87DDV0G\rocco"
+  DTS:DTSID="{FC78FB8A-B6A2-489A-BA44-DAAC5C68549E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{F3E6A689-FD00-488D-95FD-5945A7E35E99}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.IM_B2BECOMMERCE.b2bUserDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+      DTS:ObjectName="localhost.IM_B2BECOMMERCE.b2bUserDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=b2bUserDWH;Initial Catalog=IM_B2BECOMMERCE;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package1-{96D01C30-7AE4-4BE2-897E-5B494B388E92}localhost.IM_B2BECOMMERCE.b2bUserDWH;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdfGUiUbn+Eyz2VGFHGOX2AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACzOQmxtxsdr0G+GT3CBXJe68AljdASvwh5ZIozN2ecdgAAAAAOgAAAAAIAACAAAACFSdSGPNgtoOzBlOCHHUTa2RSBpNSFcEOYJrCelDempiAAAACwaPS+2L0CAIFnmsJt45KZ+v6IFsBMX8IvHkyA/xW0o0AAAAAvqroTZFsIwHKMEIDGocWA4qnbUJag/l4J/YyiWCjZu7DsL1WntTb8vvP5Bz5IZolMLY0cVt3S2R/SeSaQi3YX</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{5C97611A-8417-429B-A63F-682E325AB1B2}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_CATALOG"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8F022FEE-5212-423B-B9E5-510B569161F8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_CATALOG"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT catalogId&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_CATALOG&#xA;GROUP BY catalogId&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_CATALOG &#xA;SELECT DISTINCT catalogId,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_CATALOG', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_CATALOG;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_CATALOG&#xA;FROM B_B2BDWH_TT_CATALOG&#xA;WHERE catalogId NOT IN (&#xA;&#x9;SELECT catalogId&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_CATEGORY"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2E3DD52D-369A-41D3-BC75-955AA4698366}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_CATEGORY"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT categoryId&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_CATEGORY&#xA;GROUP BY categoryId&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_CATEGORY&#xA;SELECT DISTINCT categoryId,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_CATEGORY', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_CATEGORY;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_CATEGORY&#xA;FROM B_B2BDWH_TT_CATEGORY&#xA;WHERE categoryId NOT IN (&#xA;&#x9;SELECT categoryId&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_CITY"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{40E4C2D1-7827-471A-9E84-B1D1CDE213B8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_CITY"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT cityId&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_CITY&#xA;GROUP BY cityId&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_CITY&#xA;SELECT DISTINCT cityId,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_CITY', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_CITY;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_CITY&#xA;FROM B_B2BDWH_TT_CITY&#xA;WHERE cityId NOT IN (&#xA;&#x9;SELECT cityId&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_COMPANY"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{14678f90-7b9d-4428-afd1-70b9d8c6adfc}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_COMPANY"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT CUIT&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_COMPANY&#xA;GROUP BY CUIT&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_COMPANY&#xA;SELECT DISTINCT CUIT,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_COMPANY', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_COMPANY;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_COMPANY&#xA;FROM B_B2BDWH_TT_COMPANY&#xA;WHERE CUIT NOT IN (&#xA;&#x9;SELECT CUIT&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_ENDCUSTOMER"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{934786be-937c-4ae7-9c15-1c6fe4791e81}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_ENDCUSTOMER"
+          DTS:ThreadHint="7">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT documentNumber&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_ENDCUSTOMER&#xA;GROUP BY documentNumber&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_ENDCUSTOMER&#xA;SELECT DISTINCT documentNumber,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_ENDCUSTOMER', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_ENDCUSTOMER;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_ENDCUSTOMER&#xA;FROM B_B2BDWH_TT_ENDCUSTOMER&#xA;WHERE documentNumber NOT IN (&#xA;&#x9;SELECT documentNumber&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_GENDER"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c5969531-4410-4a26-9960-b4f7763c087c}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_GENDER"
+          DTS:ThreadHint="8">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT genderId&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_GENDER&#xA;GROUP BY genderId&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_GENDER&#xA;SELECT DISTINCT genderId,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_GENDER', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_GENDER;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_GENDER&#xA;FROM B_B2BDWH_TT_GENDER&#xA;WHERE genderId NOT IN (&#xA;&#x9;SELECT genderId&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_NATIONALITY"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{dd7f441d-9cbf-41c6-a7e0-e8e2bc8bbd8f}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_NATIONALITY"
+          DTS:ThreadHint="9">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT nationalityId&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_NATIONALITY&#xA;GROUP BY nationalityId&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_NATIONALITY&#xA;SELECT DISTINCT nationalityId,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_NATIONALITY', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_NATIONALITY;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_NATIONALITY&#xA;FROM B_B2BDWH_TT_NATIONALITY&#xA;WHERE nationalityId NOT IN (&#xA;&#x9;SELECT nationalityId&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_ORDERS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{b6b6eff5-de5c-48b9-8e96-1ac4fa84d39f}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_ORDERS"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT orderId&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_ORDERS&#xA;GROUP BY orderId&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_ORDERS&#xA;SELECT DISTINCT orderId,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_ORDERS', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_ORDERS;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_ORDERS&#xA;FROM B_B2BDWH_TT_ORDERS&#xA;WHERE orderId NOT IN (&#xA;&#x9;SELECT orderid&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_PRODUCT"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c21de44b-bb6a-4b0e-af37-d2eac0c5bc17}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_PRODUCT"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT productId&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_PRODUCT&#xA;GROUP BY productId&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_PRODUCT&#xA;SELECT DISTINCT productId,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_PRODUCT', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_PRODUCT;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_PRODUCT&#xA;FROM B_B2BDWH_TT_PRODUCT&#xA;WHERE productId NOT IN (&#xA;&#x9;SELECT productId&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_SUBCATEGORY"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7436e87e-3ab4-49ab-9d72-46b3ecc30223}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_SUBCATEGORY"
+          DTS:ThreadHint="6">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{96D01C30-7AE4-4BE2-897E-5B494B388E92}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT subcategoryId&#xA;INTO #TEMP_DUPLICATES&#xA;FROM B_B2BDWH_TT_SUBCATEGORY&#xA;GROUP BY subcategoryId&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO B_B2BDWH_E_SUBCATEGORY&#xA;SELECT DISTINCT subcategoryId,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.B_B2BDWH_T_SUBCATEGORY', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE B_B2BDWH_T_SUBCATEGORY;&#xA;&#xA;SELECT *&#xA;INTO B_B2BDWH_T_SUBCATEGORY&#xA;FROM B_B2BDWH_TT_SUBCATEGORY&#xA;WHERE subcategoryId NOT IN (&#xA;&#x9;SELECT subcategoryId&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="142.333333333334,42"
+          Id="Package\Sequence Container\T_CATALOG"
+          TopLeft="79.6666666666666,37.9684735964709" />
+        <NodeLayout
+          Size="151.333333333334,42"
+          Id="Package\Sequence Container\T_CATEGORY"
+          TopLeft="297.166666666667,41.4819872458256" />
+        <NodeLayout
+          Size="115.666666666667,42"
+          Id="Package\Sequence Container\T_CITY"
+          TopLeft="547.166666666667,40.1644196273176" />
+        <NodeLayout
+          Size="145.333333333334,42"
+          Id="Package\Sequence Container\T_COMPANY"
+          TopLeft="762.5,36.7590101466784" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Sequence Container\T_ENDCUSTOMER"
+          TopLeft="978.333333333333,39.5022495524098" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Sequence Container\T_GENDER"
+          TopLeft="88.7499999999998,210.015765714825" />
+        <NodeLayout
+          Size="161.333333333334,42"
+          Id="Package\Sequence Container\T_NATIONALITY"
+          TopLeft="285.75,201.779274966323" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Sequence Container\T_ORDERS"
+          TopLeft="546.583333333333,198.813054691853" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Sequence Container\T_PRODUCT"
+          TopLeft="770.833333333333,193.326575880391" />
+        <NodeLayout
+          Size="173.333333333334,42"
+          Id="Package\Sequence Container\T_SUBCATEGORY"
+          TopLeft="987.5,194.313058461445" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1252.33333333334,339.666666666667"
+          Size="1252.33333333334,382.666666666667"
+          Id="Package\Sequence Container"
+          TopLeft="68.6666666666665,51.799229801914" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/9/2022 7:12:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-87DDV0G"
+  DTS:CreatorName="DESKTOP-87DDV0G\rocco"
+  DTS:DTSID="{8BA0B81D-9C48-41E4-A9B3-09AC08381666}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{4695461D-8F41-4900-97A2-B69D94A290FB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.IM_B2BECOMMERCE.b2bUserDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{91F3389A-B442-4516-BFF6-64F1B705DC80}"
+      DTS:ObjectName="localhost.IM_B2BECOMMERCE.b2bUserDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=b2bUserDWH;Initial Catalog=IM_B2BECOMMERCE;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package1-{91F3389A-B442-4516-BFF6-64F1B705DC80}localhost.IM_B2BECOMMERCE.b2bUserDWH;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdfGUiUbn+Eyz2VGFHGOX2AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAGfsF8gaECRY13NsQ+AOJ4dBhASr1A7QD18xTecIZmqgAAAAAOgAAAAAIAACAAAABTzUd2fPUVYjfaha3muG0mfhh81BijptF4fOeCbtBLjCAAAAB1mBEX0ZUSJOQtawmRzcPEOvHlPzndKZwh5EiF6ZGlKUAAAACsOT8amdXNFcriTGAR/OmIEw58qAiSz9we9bXBq4BsfPC73HShruMKViOpQ75tTC9xBIbozSaPrreeBvN4ISu5</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{F5BFBBDA-A8BD-4616-9945-7444EF12745E}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\T_SERVER_LOG"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{a77a4f10-1c46-4aaf-be44-2985864fa21c}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="T_SERVER_LOG"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{91F3389A-B442-4516-BFF6-64F1B705DC80}"
+              SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT filename + line as dup&#xA;INTO #TEMP_DUPLICATES&#xA;FROM A_B2BDWH_TT_SERVERLOG&#xA;GROUP BY filename + line&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO A_B2BDWH_E_SERVERLOG&#xA;SELECT DISTINCT&#xA; CURRENT_TIMESTAMP,&#xA; 'Duplicate rows in Origin table',&#xA;  dup&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.A_B2BDWH_T_SERVERLOG', N'U') IS NOT NULL&#xA; DROP TABLE A_B2BDWH_T_SERVERLOG;&#xA;&#xA;SELECT *&#xA;INTO A_B2BDWH_T_SERVERLOG&#xA;FROM A_B2BDWH_TT_SERVERLOG&#xA;WHERE filename + line NOT IN (&#xA; SELECT dup&#xA; FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163.666666666667,42"
+          Id="Package\Sequence Container\T_SERVER_LOG"
+          TopLeft="89.9999999999999,42.2432507145051" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="357,137.666666666667"
+          Size="357,180.666666666667"
+          Id="Package\Sequence Container"
+          TopLeft="279.666666666667,90.2973007884141" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

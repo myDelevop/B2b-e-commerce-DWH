@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/9/2022 7:13:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-87DDV0G"
+  DTS:CreatorName="DESKTOP-87DDV0G\rocco"
+  DTS:DTSID="{6B015EC6-60D4-427B-BDC8-EB281D7385D6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="2_D_B2B_XLS_UserLogin_T"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{929A0AFA-8480-4F9A-B680-F58C38CE222B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.IM_B2BECOMMERCE.b2bUserDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{640DECA6-90C2-4300-A856-8F434EF2D318}"
+      DTS:ObjectName="localhost.IM_B2BECOMMERCE.b2bUserDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=b2bUserDWH;Initial Catalog=IM_B2BECOMMERCE;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package2-{640DECA6-90C2-4300-A856-8F434EF2D318}localhost.IM_B2BECOMMERCE.b2bUserDWH;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdfGUiUbn+Eyz2VGFHGOX2AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABLhKlPJc6hBJ1v8qRipqKMwvyLU/iqJpxceDx6C/vrBQAAAAAOgAAAAAIAACAAAACPdnphdQiwypmO1FbSu76PR46MgHflbMGwk70aUPHODSAAAABLU1SoQnL5ZrQZK1cBjqjzAVl3z69oNH4Z6gfV6SU/5kAAAADSeY1OKhEN5PN7lvftQ2rlLpkwt6H+/HFP7CDJiVoD5RnpQB0I1JuQHOdK7gTQSTwJYdnGE5hmPWGglTny95DH</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\T_USER_LOGIN"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5829376E-59BA-4BBA-82B3-E247EE28FCB4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="T_USER_LOGIN"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{640DECA6-90C2-4300-A856-8F434EF2D318}"
+          SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT USERNAME&#xA;INTO #TEMP_DUPLICATES&#xA;FROM D_B2BDWH_TT_USER_LOGIN&#xA;GROUP BY USERNAME&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;&#xA;INSERT INTO D_B2BDWH_E_USER_LOGIN&#xA;SELECT DISTINCT USERNAME,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.D_B2BDWH_T_USER_LOGIN', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE D_B2BDWH_T_USER_LOGIN;&#xA;&#xA;SELECT *&#xA;INTO D_B2BDWH_T_USER_LOGIN&#xA;FROM D_B2BDWH_TT_USER_LOGIN&#xA;WHERE username NOT IN (&#xA;&#x9;SELECT username&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\T_USER_LOGIN"
+          TopLeft="345,147.48648986893" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

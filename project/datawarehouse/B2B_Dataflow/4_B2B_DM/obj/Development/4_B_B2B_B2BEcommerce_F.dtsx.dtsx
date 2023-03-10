@@ -1,0 +1,2273 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/10/2022 6:35:37 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-87DDV0G"
+  DTS:CreatorName="DESKTOP-87DDV0G\rocco"
+  DTS:DTSID="{AE1D95C6-BA62-4E89-B02B-FFD18EC6E19C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{E8CA15A3-0CD1-4F4D-B06B-4519B9B050E4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.DM_B2BECOMMERCE.b2bUserDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6A34D6E7-6BC6-4AD0-875B-C6426581916D}"
+      DTS:ObjectName="localhost.DM_B2BECOMMERCE.b2bUserDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=b2bUserDWH;Initial Catalog=DM_B2BECOMMERCE;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-4_A_B2B_B2BEcommerce_L-{6A34D6E7-6BC6-4AD0-875B-C6426581916D}localhost.DM_B2BECOMMERCE.b2bUserDWH;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdfGUiUbn+Eyz2VGFHGOX2AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADVZWpT5C1ID5PznfYYAZYrsxHYyeCWRvP4bIROhwURJgAAAAAOgAAAAAIAACAAAABgu7ysfo1phkxXIrqqgfvCOizGQUS2BhaFd+A+uGU6ryAAAAA50w8vKCmUuzXuHtRHEYCJwMk87KX20mob6+PAEtwzVkAAAAB9veQIc/gyqsKXyZnnaCZLDeRSVFWoLiR225pEaN1EQdlWuNHj+yEfRWPAgzMyJDXoHqWOhhxnVVtFjyh4G8x3</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.SA_B2BECOMMERCE.b2bUserDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6EEFEDB3-596B-4EE4-82DC-03D1320A6433}"
+      DTS:ObjectName="localhost.SA_B2BECOMMERCE.b2bUserDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=b2bUserDWH;Initial Catalog=SA_B2BECOMMERCE;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-4_A_B2B_B2BEcommerce_L-{6EEFEDB3-596B-4EE4-82DC-03D1320A6433}localhost.SA_B2BECOMMERCE.b2bUserDWH;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdfGUiUbn+Eyz2VGFHGOX2AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADZs2VsjT81LlP4b3yEG+p/SKS7nZoQztr07Rag8ghOogAAAAAOgAAAAAIAACAAAACJdwsYUYio7tbkyLN6aP5m/iCmBjz4+kImGGuOvpMiVSAAAADn9mifbfkFQ9n6pJ5m7dh/tHvGABvUNydKK4svFU2B40AAAACv5Y3GUrPxT8mWaqiZjQ4Kamhaa/OopQC465xPGYYKoyy/upOAKv1TKBbTa4dkp2z8sBns7NakZJwF6xajbDvU</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LAST_LOGIN"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{fa248d18-27e2-411c-8695-ce94688663e2}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LAST_LOGIN">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\LAST_LOGIN\F_LAST_LOGIN"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{e8823606-2e38-4417-bc16-98d7ba01981d}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="F_LAST_LOGIN"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="F_LAST_LOGIN"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[B_B2BDWH_F_LAST_LOGIN]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DM_B2BECOMMERCE.b2bUserDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DM_B2BECOMMERCE.b2bUserDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].Columns[ENDCUSTOMERIDS]"
+                          cachedDataType="i4"
+                          cachedName="ENDCUSTOMERIDS"
+                          externalMetadataColumnId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[ENDCUSTOMERIDS]"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[ENDCUSTOMERIDS]" />
+                        <inputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].Columns[LOGINDATE_IDS]"
+                          cachedDataType="i4"
+                          cachedName="LOGINDATE_IDS"
+                          externalMetadataColumnId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[LOGINDATE_IDS]"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[LOGINDATE_IDS]" />
+                        <inputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].Columns[DEVICEIDS]"
+                          cachedDataType="i4"
+                          cachedName="DEVICEIDS"
+                          externalMetadataColumnId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[DEVICEIDS]"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[DEVICEIDS]" />
+                        <inputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].Columns[NATIONALITYIDS]"
+                          cachedDataType="i4"
+                          cachedName="NATIONALITYIDS"
+                          externalMetadataColumnId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_NATIONALITYIDS]"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[NATIONALITYIDS]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          name="ENDCUSTOMERIDS" />
+                        <externalMetadataColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[LOGINDATE_IDS]"
+                          dataType="i4"
+                          name="LOGINDATE_IDS" />
+                        <externalMetadataColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[DEVICEIDS]"
+                          dataType="i4"
+                          name="DEVICEIDS" />
+                        <externalMetadataColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[CUSTOMER_NATIONALITYIDS]"
+                          dataType="i4"
+                          name="CUSTOMER_NATIONALITYIDS" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SF_LAST_LOGIN"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[B_B2BDWH_SF_LAST_LOGIN]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.SA_B2BECOMMERCE.b2bUserDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.SA_B2BECOMMERCE.b2bUserDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].ExternalColumns[ENDCUSTOMERIDS]"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[ENDCUSTOMERIDS]"
+                          name="ENDCUSTOMERIDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[LOGINDATE_IDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].ExternalColumns[LOGINDATE_IDS]"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[LOGINDATE_IDS]"
+                          name="LOGINDATE_IDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[DEVICEIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].ExternalColumns[DEVICEIDS]"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[DEVICEIDS]"
+                          name="DEVICEIDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[NATIONALITYIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].ExternalColumns[NATIONALITYIDS]"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].Columns[NATIONALITYIDS]"
+                          name="NATIONALITYIDS"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].ExternalColumns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          name="ENDCUSTOMERIDS" />
+                        <externalMetadataColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].ExternalColumns[LOGINDATE_IDS]"
+                          dataType="i4"
+                          name="LOGINDATE_IDS" />
+                        <externalMetadataColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].ExternalColumns[DEVICEIDS]"
+                          dataType="i4"
+                          name="DEVICEIDS" />
+                        <externalMetadataColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output].ExternalColumns[NATIONALITYIDS]"
+                          dataType="i4"
+                          name="NATIONALITYIDS" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[ENDCUSTOMERIDS]"
+                          name="ENDCUSTOMERIDS" />
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[LOGINDATE_IDS]"
+                          dataType="i4"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[LOGINDATE_IDS]"
+                          name="LOGINDATE_IDS" />
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[DEVICEIDS]"
+                          dataType="i4"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[DEVICEIDS]"
+                          name="DEVICEIDS" />
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[NATIONALITYIDS]"
+                          dataType="i4"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[NATIONALITYIDS]"
+                          name="NATIONALITYIDS" />
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\LAST_LOGIN\F_LAST_LOGIN.Paths[OLE DB Source Output]"
+                  endId="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\LAST_LOGIN\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{c92360f0-2aa2-44a0-b52d-0c0f760d6ebc}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6A34D6E7-6BC6-4AD0-875B-C6426581916D}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE B_B2BDWH_F_LAST_LOGIN;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\LAST_LOGIN.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{f42ef97d-86d9-4c6a-9bd6-92c1f377df70}"
+          DTS:From="Package\LAST_LOGIN\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\LAST_LOGIN\F_LAST_LOGIN" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ORDERS FACT"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{884c95cb-863f-43bd-b598-cfc4158627cb}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ORDERS FACT">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\ORDERS FACT\F_ORDERS"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{37ae17ec-1e54-4d04-ad68-12f2a0ef214e}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="F_ORDERS"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="F_ORDERS"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[B_B2BDWH_F_ORDERS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DM_B2BECOMMERCE.b2bUserDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DM_B2BECOMMERCE.b2bUserDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[PRODUCTIDS]"
+                          cachedDataType="i4"
+                          cachedName="PRODUCTIDS"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCTIDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[PRODUCTIDS]" />
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[ORDERID]"
+                          cachedDataType="i8"
+                          cachedName="ORDERID"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[ORDERID]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[ORDERID]" />
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[CATALOGID]"
+                          cachedDataType="i8"
+                          cachedName="CATALOGID"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[CATALOGID]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[CATALOGID]" />
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[ENDCUSTOMERIDS]"
+                          cachedDataType="i4"
+                          cachedName="ENDCUSTOMERIDS"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[ENDCUSTOMERIDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[ENDCUSTOMERIDS]" />
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[COMPANYIDS]"
+                          cachedDataType="i4"
+                          cachedName="COMPANYIDS"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[COMPANYIDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[COMPANYIDS]" />
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[PRICE]"
+                          cachedDataType="numeric"
+                          cachedName="PRICE"
+                          cachedPrecision="30"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[PRICE]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[PRICE]" />
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[QUANTITY]"
+                          cachedDataType="i4"
+                          cachedName="QUANTITY"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[QUANTITY]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[QUANTITY]" />
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[XLS_ATTRIBUTES_IDS]"
+                          cachedDataType="i4"
+                          cachedName="XLS_ATTRIBUTES_IDS"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[XLS_ATTRIBUTES_IDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[XLS_ATTRIBUTES_IDS]" />
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[DATE_IDS]"
+                          cachedDataType="i4"
+                          cachedName="DATE_IDS"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[DATE_IDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[DATE_IDS]" />
+                        <inputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].Columns[NATIONALITYIDS]"
+                          cachedDataType="i4"
+                          cachedName="NATIONALITYIDS"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[ORDER_NATIONALITYIDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[NATIONALITYIDS]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCTIDS]"
+                          dataType="i4"
+                          name="PRODUCTIDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[ORDERID]"
+                          dataType="i8"
+                          name="ORDERID" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[CATALOGID]"
+                          dataType="i8"
+                          name="CATALOGID" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          name="ENDCUSTOMERIDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[COMPANYIDS]"
+                          dataType="i4"
+                          name="COMPANYIDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[PRICE]"
+                          dataType="numeric"
+                          name="PRICE"
+                          precision="30"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[QUANTITY]"
+                          dataType="i4"
+                          name="QUANTITY" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[XLS_ATTRIBUTES_IDS]"
+                          dataType="i4"
+                          name="XLS_ATTRIBUTES_IDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[DATE_IDS]"
+                          dataType="i4"
+                          name="DATE_IDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input].ExternalColumns[ORDER_NATIONALITYIDS]"
+                          dataType="i4"
+                          name="ORDER_NATIONALITYIDS" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SF_ORDERS"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[B_B2BDWH_SF_ORDERS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.SA_B2BECOMMERCE.b2bUserDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.SA_B2BECOMMERCE.b2bUserDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[PRODUCTIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[PRODUCTIDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[PRODUCTIDS]"
+                          name="PRODUCTIDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[ORDERID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[ORDERID]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[ORDERID]"
+                          name="ORDERID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[CATALOGID]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[CATALOGID]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[CATALOGID]"
+                          name="CATALOGID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[ENDCUSTOMERIDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[ENDCUSTOMERIDS]"
+                          name="ENDCUSTOMERIDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[COMPANYIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[COMPANYIDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[COMPANYIDS]"
+                          name="COMPANYIDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[PRICE]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[PRICE]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[PRICE]"
+                          name="PRICE"
+                          precision="30"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[QUANTITY]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[QUANTITY]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[QUANTITY]"
+                          name="QUANTITY"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[XLS_ATTRIBUTES_IDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[XLS_ATTRIBUTES_IDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[XLS_ATTRIBUTES_IDS]"
+                          name="XLS_ATTRIBUTES_IDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[DATE_IDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[DATE_IDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[DATE_IDS]"
+                          name="DATE_IDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[NATIONALITYIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[NATIONALITYIDS]"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].Columns[NATIONALITYIDS]"
+                          name="NATIONALITYIDS"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[PRODUCTIDS]"
+                          dataType="i4"
+                          name="PRODUCTIDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[ORDERID]"
+                          dataType="i8"
+                          name="ORDERID" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[CATALOGID]"
+                          dataType="i8"
+                          name="CATALOGID" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          name="ENDCUSTOMERIDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[COMPANYIDS]"
+                          dataType="i4"
+                          name="COMPANYIDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[PRICE]"
+                          dataType="numeric"
+                          name="PRICE"
+                          precision="30"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[QUANTITY]"
+                          dataType="i4"
+                          name="QUANTITY" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[XLS_ATTRIBUTES_IDS]"
+                          dataType="i4"
+                          name="XLS_ATTRIBUTES_IDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[DATE_IDS]"
+                          dataType="i4"
+                          name="DATE_IDS" />
+                        <externalMetadataColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output].ExternalColumns[NATIONALITYIDS]"
+                          dataType="i4"
+                          name="NATIONALITYIDS" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[ORDERID]"
+                          dataType="i8"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[ORDERID]"
+                          name="ORDERID" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[CATALOGID]"
+                          dataType="i8"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[CATALOGID]"
+                          name="CATALOGID" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[ENDCUSTOMERIDS]"
+                          name="ENDCUSTOMERIDS" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[COMPANYIDS]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[COMPANYIDS]"
+                          name="COMPANYIDS" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[PRODUCTIDS]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[PRODUCTIDS]"
+                          name="PRODUCTIDS" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[XLS_ATTRIBUTES_IDS]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[XLS_ATTRIBUTES_IDS]"
+                          name="XLS_ATTRIBUTES_IDS" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[DATE_IDS]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[DATE_IDS]"
+                          name="DATE_IDS" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[NATIONALITYIDS]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[NATIONALITYIDS]"
+                          name="NATIONALITYIDS" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[PRICE]"
+                          dataType="numeric"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[PRICE]"
+                          name="PRICE"
+                          precision="30"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[QUANTITY]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[QUANTITY]"
+                          name="QUANTITY" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\ORDERS FACT\F_ORDERS.Paths[OLE DB Source Output]"
+                  endId="Package\ORDERS FACT\F_ORDERS\F_ORDERS.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\ORDERS FACT\F_ORDERS\SF_ORDERS.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\ORDERS FACT\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3fda569d-4af7-4964-89fc-698a1936cff2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6A34D6E7-6BC6-4AD0-875B-C6426581916D}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE B_B2BDWH_F_ORDERS;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\ORDERS FACT.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{68288a57-0507-4999-b9c8-cb153301a29c}"
+          DTS:From="Package\ORDERS FACT\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\ORDERS FACT\F_ORDERS" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PRODUCT_SUPPLIER FACT"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{21e13777-ffce-4a00-9966-fb461eae7b0e}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PRODUCT_SUPPLIER FACT">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{15e1f9af-e005-46a9-9ac3-05d5258db23d}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="F_PRODUCT_SUPPLIER"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="F_PRODUCT_SUPPLIER"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[B_B2BDWH_F_PRODUCT_SUPPLIER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DM_B2BECOMMERCE.b2bUserDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DM_B2BECOMMERCE.b2bUserDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input].Columns[PRODUCTIDS]"
+                          cachedDataType="i4"
+                          cachedName="PRODUCTIDS"
+                          externalMetadataColumnId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCTIDS]"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].Columns[PRODUCTIDS]" />
+                        <inputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input].Columns[SUPPLIERIDS]"
+                          cachedDataType="i4"
+                          cachedName="SUPPLIERIDS"
+                          externalMetadataColumnId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input].ExternalColumns[SUPPLIERIDS]"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].Columns[SUPPLIERIDS]" />
+                        <inputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input].Columns[DEFAULTPRICE]"
+                          cachedDataType="numeric"
+                          cachedName="DEFAULTPRICE"
+                          cachedPrecision="30"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input].ExternalColumns[DEFAULTPRICE]"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].Columns[DEFAULTPRICE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input].ExternalColumns[PRODUCTIDS]"
+                          dataType="i4"
+                          name="PRODUCTIDS" />
+                        <externalMetadataColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input].ExternalColumns[SUPPLIERIDS]"
+                          dataType="i4"
+                          name="SUPPLIERIDS" />
+                        <externalMetadataColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input].ExternalColumns[DEFAULTPRICE]"
+                          dataType="numeric"
+                          name="DEFAULTPRICE"
+                          precision="30"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SF_PRODUCT_SUPPLIER"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[B_B2BDWH_SF_PRODUCT_SUPPLIER]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.SA_B2BECOMMERCE.b2bUserDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.SA_B2BECOMMERCE.b2bUserDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].Columns[PRODUCTIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].ExternalColumns[PRODUCTIDS]"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].Columns[PRODUCTIDS]"
+                          name="PRODUCTIDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].Columns[SUPPLIERIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIERIDS]"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].Columns[SUPPLIERIDS]"
+                          name="SUPPLIERIDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].Columns[DEFAULTPRICE]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].ExternalColumns[DEFAULTPRICE]"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].Columns[DEFAULTPRICE]"
+                          name="DEFAULTPRICE"
+                          precision="30"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].ExternalColumns[PRODUCTIDS]"
+                          dataType="i4"
+                          name="PRODUCTIDS" />
+                        <externalMetadataColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].ExternalColumns[SUPPLIERIDS]"
+                          dataType="i4"
+                          name="SUPPLIERIDS" />
+                        <externalMetadataColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output].ExternalColumns[DEFAULTPRICE]"
+                          dataType="numeric"
+                          name="DEFAULTPRICE"
+                          precision="30"
+                          scale="2" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[PRODUCTIDS]"
+                          dataType="i4"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[PRODUCTIDS]"
+                          name="PRODUCTIDS" />
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[SUPPLIERIDS]"
+                          dataType="i4"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[SUPPLIERIDS]"
+                          name="SUPPLIERIDS" />
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[DEFAULTPRICE]"
+                          dataType="numeric"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[DEFAULTPRICE]"
+                          name="DEFAULTPRICE"
+                          precision="30"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER.Paths[OLE DB Source Output]"
+                  endId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\PRODUCT_SUPPLIER FACT\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9fcbe4c8-afc7-46ef-bbfb-93c3b95e5777}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6A34D6E7-6BC6-4AD0-875B-C6426581916D}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE B_B2BDWH_F_PRODUCT_SUPPLIER;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\PRODUCT_SUPPLIER FACT.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6bf42b6d-df6d-4c73-a952-fd38521e30de}"
+          DTS:From="Package\PRODUCT_SUPPLIER FACT\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SERVER_LOG FACT"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{d4afb91d-8da5-46bd-9de5-bdf7d9f80e37}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SERVER_LOG FACT">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SERVER_LOG FACT\F_SERVER_LOG"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{bce2b35b-0946-4608-a125-9b1697148187}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="F_SERVER_LOG"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="F_SERVER_LOG"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[B_B2BDWH_F_SERVER_LOG]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">true</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.DM_B2BECOMMERCE.b2bUserDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.DM_B2BECOMMERCE.b2bUserDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Inputs[OLE DB Destination Input].Columns[ENDCUSTOMERIDS]"
+                          cachedDataType="i4"
+                          cachedName="ENDCUSTOMERIDS"
+                          externalMetadataColumnId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Inputs[OLE DB Destination Input].ExternalColumns[ENDCUSTOMERIDS]"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].Columns[ENDCUSTOMERIDS]" />
+                        <inputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Inputs[OLE DB Destination Input].Columns[SERVERLOG_IDS]"
+                          cachedDataType="i4"
+                          cachedName="SERVERLOG_IDS"
+                          externalMetadataColumnId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Inputs[OLE DB Destination Input].ExternalColumns[SERVERLOG_IDS]"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].Columns[SERVERLOG_IDS]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Inputs[OLE DB Destination Input].ExternalColumns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          name="ENDCUSTOMERIDS" />
+                        <externalMetadataColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Inputs[OLE DB Destination Input].ExternalColumns[SERVERLOG_IDS]"
+                          dataType="i4"
+                          name="SERVERLOG_IDS" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="SF_SERVER_LOG"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[B_B2BDWH_SF_SERVER_LOG]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.SA_B2BECOMMERCE.b2bUserDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.SA_B2BECOMMERCE.b2bUserDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].Columns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].ExternalColumns[ENDCUSTOMERIDS]"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].Columns[ENDCUSTOMERIDS]"
+                          name="ENDCUSTOMERIDS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].Columns[SERVERLOG_IDS]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].ExternalColumns[SERVERLOG_IDS]"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].Columns[SERVERLOG_IDS]"
+                          name="SERVERLOG_IDS"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].ExternalColumns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          name="ENDCUSTOMERIDS" />
+                        <externalMetadataColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output].ExternalColumns[SERVERLOG_IDS]"
+                          dataType="i4"
+                          name="SERVERLOG_IDS" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Error Output].Columns[SERVERLOG_IDS]"
+                          dataType="i4"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Error Output].Columns[SERVERLOG_IDS]"
+                          name="SERVERLOG_IDS" />
+                        <outputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Error Output].Columns[ENDCUSTOMERIDS]"
+                          dataType="i4"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Error Output].Columns[ENDCUSTOMERIDS]"
+                          name="ENDCUSTOMERIDS" />
+                        <outputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SERVER_LOG FACT\F_SERVER_LOG.Paths[OLE DB Source Output]"
+                  endId="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SERVER_LOG FACT\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{6e401819-c826-455c-b733-9eb617a78086}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{6A34D6E7-6BC6-4AD0-875B-C6426581916D}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE B_B2BDWH_F_SERVER_LOG;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SERVER_LOG FACT.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{ddb891fb-c8ed-4831-9c8d-009a866cce4f}"
+          DTS:From="Package\SERVER_LOG FACT\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SERVER_LOG FACT\F_SERVER_LOG" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F0C8BF53-D48D-4A2C-94BB-1A0264211983}"
+      DTS:From="Package\PRODUCT_SUPPLIER FACT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\ORDERS FACT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{FFFDCD6D-4AC3-409F-96BD-8D3642513D3C}"
+      DTS:From="Package\ORDERS FACT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SERVER_LOG FACT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6F6409B4-295F-467F-9DDD-70E0BB33160E}"
+      DTS:From="Package\SERVER_LOG FACT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\LAST_LOGIN" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\LAST_LOGIN\F_LAST_LOGIN"
+          TopLeft="57.6666666666664,115.180189865653" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\LAST_LOGIN\TRUNCATE"
+          TopLeft="44.3333333333332,27.6936999967218" />
+        <EdgeLayout
+          Id="Package\LAST_LOGIN.PrecedenceConstraints[Constraint]"
+          TopLeft="112.833333333333,69.6936999967218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.3333333333332,45.4864898689312"
+              Start="0,0"
+              End="23.3333333333332,37.9864898689312">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7432449344656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7432449344656"
+                    Point2="0,22.7432449344656"
+                    Point3="4,22.7432449344656" />
+                  <mssgle:LineSegment
+                    End="19.3333333333332,22.7432449344656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.3333333333332,22.7432449344656"
+                    Point2="23.3333333333332,22.7432449344656"
+                    Point3="23.3333333333332,26.7432449344656" />
+                  <mssgle:LineSegment
+                    End="23.3333333333332,37.9864898689312" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="276.666666666667,228.666666666667"
+          Size="276.666666666667,271.666666666667"
+          Id="Package\LAST_LOGIN"
+          TopLeft="981.111111111111,612.072067770436" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\ORDERS FACT\F_ORDERS"
+          TopLeft="57.6666666666664,115.180189865653" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\ORDERS FACT\TRUNCATE"
+          TopLeft="44.3333333333332,27.6936999967218" />
+        <EdgeLayout
+          Id="Package\ORDERS FACT.PrecedenceConstraints[Constraint]"
+          TopLeft="112.833333333333,69.6936999967218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.3333333333332,45.4864898689312"
+              Start="0,0"
+              End="13.3333333333332,37.9864898689312">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7432449344656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7432449344656"
+                    Point2="0,22.7432449344656"
+                    Point3="4,22.7432449344656" />
+                  <mssgle:LineSegment
+                    End="9.33333333333319,22.7432449344656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.33333333333319,22.7432449344656"
+                    Point2="13.3333333333332,22.7432449344656"
+                    Point3="13.3333333333332,26.7432449344656" />
+                  <mssgle:LineSegment
+                    End="13.3333333333332,37.9864898689312" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="276.666666666667,228.666666666667"
+          Size="276.666666666667,271.666666666667"
+          Id="Package\ORDERS FACT"
+          TopLeft="588.444444444445,119.954944449908" />
+        <NodeLayout
+          Size="202.666666666667,42"
+          Id="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER"
+          TopLeft="57.6666666666664,115.180189865653" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\PRODUCT_SUPPLIER FACT\TRUNCATE"
+          TopLeft="44.3333333333332,27.6936999967218" />
+        <EdgeLayout
+          Id="Package\PRODUCT_SUPPLIER FACT.PrecedenceConstraints[Constraint]"
+          TopLeft="112.833333333333,69.6936999967218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.1666666666665,45.4864898689308"
+              Start="0,0"
+              End="46.1666666666665,37.9864898689308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7432449344654" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7432449344654"
+                    Point2="0,22.7432449344654"
+                    Point3="4,22.7432449344654" />
+                  <mssgle:LineSegment
+                    End="42.1666666666665,22.7432449344654" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.1666666666665,22.7432449344654"
+                    Point2="46.1666666666665,22.7432449344654"
+                    Point3="46.1666666666665,26.7432449344654" />
+                  <mssgle:LineSegment
+                    End="46.1666666666665,37.9864898689308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="276.666666666667,228.666666666667"
+          Size="276.666666666667,271.666666666667"
+          Id="Package\PRODUCT_SUPPLIER FACT"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="163.666666666667,42"
+          Id="Package\SERVER_LOG FACT\F_SERVER_LOG"
+          TopLeft="57.6666666666664,115.180189865653" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\SERVER_LOG FACT\TRUNCATE"
+          TopLeft="44.3333333333332,27.6936999967218" />
+        <EdgeLayout
+          Id="Package\SERVER_LOG FACT.PrecedenceConstraints[Constraint]"
+          TopLeft="112.833333333333,69.6936999967218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.6666666666665,45.4864898689312"
+              Start="0,0"
+              End="26.6666666666665,37.9864898689312">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7432449344656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7432449344656"
+                    Point2="0,22.7432449344656"
+                    Point3="4,22.7432449344656" />
+                  <mssgle:LineSegment
+                    End="22.6666666666665,22.7432449344656" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.6666666666665,22.7432449344656"
+                    Point2="26.6666666666665,22.7432449344656"
+                    Point3="26.6666666666665,26.7432449344656" />
+                  <mssgle:LineSegment
+                    End="26.6666666666665,37.9864898689312" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="276.666666666667,228.666666666667"
+          Size="276.666666666667,271.666666666667"
+          Id="Package\SERVER_LOG FACT"
+          TopLeft="1067.77777777778,109.990967277659" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="336.666666666667,195.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="251.777777777778,59.954944449908"
+              Start="0,0"
+              End="244.277777777778,59.954944449908">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="121.888888888889,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.888888888889,0"
+                    Point2="125.888888888889,0"
+                    Point3="125.888888888889,4" />
+                  <mssgle:LineSegment
+                    End="125.888888888889,55.954944449908" />
+                  <mssgle:CubicBezierSegment
+                    Point1="125.888888888889,55.954944449908"
+                    Point2="125.888888888889,59.954944449908"
+                    Point3="129.888888888889,59.954944449908" />
+                  <mssgle:LineSegment
+                    End="244.277777777778,59.954944449908" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="865.111111111111,255.788277783241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="202.666666666669,-9.96397717224903"
+              Start="0,0"
+              End="195.166666666669,-9.96397717224903">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="97.3333333333344,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="97.3333333333344,0"
+                    Point2="101.333333333334,0"
+                    Point3="101.333333333334,-4" />
+                  <mssgle:LineSegment
+                    End="101.333333333334,-5.96397717224903" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.333333333334,-5.96397717224903"
+                    Point2="101.333333333334,-9.96397717224903"
+                    Point3="105.333333333334,-9.96397717224903" />
+                  <mssgle:LineSegment
+                    End="195.166666666669,-9.96397717224903" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1206.11111111111,381.657633944326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-86.666666666669,230.41443382611"
+              Start="0,0"
+              End="-86.666666666669,222.91443382611">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,111.207216913055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,111.207216913055"
+                    Point2="0,115.207216913055"
+                    Point3="-4,115.207216913055" />
+                  <mssgle:LineSegment
+                    End="-82.666666666669,115.207216913055" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-82.666666666669,115.207216913055"
+                    Point2="-86.666666666669,115.207216913055"
+                    Point3="-86.666666666669,119.207216913055" />
+                  <mssgle:LineSegment
+                    End="-86.666666666669,222.91443382611" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LAST_LOGIN\F_LAST_LOGIN">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164.333333333334,42"
+          Id="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN"
+          TopLeft="363.666666666667,56.9189211195451" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN"
+          TopLeft="401.666666666667,180.945952941764" />
+        <EdgeLayout
+          Id="Package\LAST_LOGIN\F_LAST_LOGIN.Paths[OLE DB Source Output]"
+          TopLeft="445.833333333334,98.9189211195451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.3333333333333,82.0270318222189"
+              Start="0,0"
+              End="34.3333333333333,74.5270318222189">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0135159111095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0135159111095"
+                    Point2="0,41.0135159111095"
+                    Point3="4,41.0135159111095" />
+                  <mssgle:LineSegment
+                    End="30.3333333333333,41.0135159111095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.3333333333333,41.0135159111095"
+                    Point2="34.3333333333333,41.0135159111095"
+                    Point3="34.3333333333333,45.0135159111095" />
+                  <mssgle:LineSegment
+                    End="34.3333333333333,74.5270318222189" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LAST_LOGIN\F_LAST_LOGIN\F_LAST_LOGIN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LAST_LOGIN\F_LAST_LOGIN\SF_LAST_LOGIN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ORDERS FACT\F_ORDERS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\ORDERS FACT\F_ORDERS\SF_ORDERS"
+          TopLeft="363.666666666667,56.9189211195451" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\ORDERS FACT\F_ORDERS\F_ORDERS"
+          TopLeft="401.666666666667,180.945952941764" />
+        <EdgeLayout
+          Id="Package\ORDERS FACT\F_ORDERS.Paths[OLE DB Source Output]"
+          TopLeft="435.666666666667,98.9189211195451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.4999999999999,82.0270318222189"
+              Start="0,0"
+              End="34.4999999999999,74.5270318222189">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0135159111095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0135159111095"
+                    Point2="0,41.0135159111095"
+                    Point3="4,41.0135159111095" />
+                  <mssgle:LineSegment
+                    End="30.4999999999999,41.0135159111095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.4999999999999,41.0135159111095"
+                    Point2="34.4999999999999,41.0135159111095"
+                    Point3="34.4999999999999,45.0135159111095" />
+                  <mssgle:LineSegment
+                    End="34.4999999999999,74.5270318222189" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ORDERS FACT\F_ORDERS\F_ORDERS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ORDERS FACT\F_ORDERS\SF_ORDERS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER"
+          TopLeft="363.666666666667,56.9189211195451" />
+        <NodeLayout
+          Size="202.666666666667,42"
+          Id="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER"
+          TopLeft="401.666666666667,180.945952941764" />
+        <EdgeLayout
+          Id="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER.Paths[OLE DB Source Output]"
+          TopLeft="468.666666666667,98.9189211195451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.3333333333333,82.0270318222189"
+              Start="0,0"
+              End="34.3333333333333,74.5270318222189">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0135159111095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0135159111095"
+                    Point2="0,41.0135159111095"
+                    Point3="4,41.0135159111095" />
+                  <mssgle:LineSegment
+                    End="30.3333333333333,41.0135159111095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.3333333333333,41.0135159111095"
+                    Point2="34.3333333333333,41.0135159111095"
+                    Point3="34.3333333333333,45.0135159111095" />
+                  <mssgle:LineSegment
+                    End="34.3333333333333,74.5270318222189" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\F_PRODUCT_SUPPLIER">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PRODUCT_SUPPLIER FACT\F_PRODUCT_SUPPLIER\SF_PRODUCT_SUPPLIER">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SERVER_LOG FACT\F_SERVER_LOG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.666666666667,42"
+          Id="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG"
+          TopLeft="363.666666666667,56.9189211195451" />
+        <NodeLayout
+          Size="163.666666666667,42"
+          Id="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG"
+          TopLeft="401.666666666667,180.945952941764" />
+        <EdgeLayout
+          Id="Package\SERVER_LOG FACT\F_SERVER_LOG.Paths[OLE DB Source Output]"
+          TopLeft="449,98.9189211195451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.5,82.0270318222189"
+              Start="0,0"
+              End="34.5,74.5270318222189">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0135159111095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.0135159111095"
+                    Point2="0,41.0135159111095"
+                    Point3="4,41.0135159111095" />
+                  <mssgle:LineSegment
+                    End="30.5,41.0135159111095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.5,41.0135159111095"
+                    Point2="34.5,41.0135159111095"
+                    Point3="34.5,45.0135159111095" />
+                  <mssgle:LineSegment
+                    End="34.5,74.5270318222189" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SERVER_LOG FACT\F_SERVER_LOG\F_SERVER_LOG">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SERVER_LOG FACT\F_SERVER_LOG\SF_SERVER_LOG">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

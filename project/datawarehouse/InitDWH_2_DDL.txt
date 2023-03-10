@@ -1,0 +1,89 @@
+USE IM_B2BECOMMERCE;
+
+CREATE TABLE A_B2BDWH_T_SERVERLOG (
+	fileName varchar(240),
+	lineNumber integer,
+	line varchar(600),
+	ip varchar(30),
+	"identity" varchar(20),
+	username varchar(20),
+	time datetime,
+	request varchar(120),
+	httpCode integer,
+	bytes float,
+	pageURL varchar(120),
+	userAgent varchar(260)
+);
+
+
+CREATE TABLE A_B2BDWH_E_SERVERLOG (
+date datetime,
+sourceError varchar(120),
+errorMessage varchar(600)
+)
+
+
+
+CREATE TABLE B_B2BDWH_E_CATALOG (
+	catalogid integer,
+	errorDate datetime,
+	errorMessage varchar(200));
+
+CREATE TABLE B_B2BDWH_E_CATEGORY (
+	categoryid integer,
+	errorDate datetime,
+	errorMessage varchar(200));
+
+
+CREATE TABLE B_B2BDWH_E_CITY (
+	cityid integer,
+	errorDate datetime,
+	errorMessage varchar(200));
+
+
+CREATE TABLE B_B2BDWH_E_COMPANY (
+	cuit nvarchar(13),
+	errorDate datetime,
+	errorMessage varchar(200));
+
+CREATE TABLE B_B2BDWH_E_ENDCUSTOMER (
+	documentnumber nvarchar(30),
+	errorDate datetime,
+	errorMessage varchar(200));
+
+CREATE TABLE B_B2BDWH_E_GENDER (
+	genderid integer,
+	errorDate datetime,
+	errorMessage varchar(200));
+
+CREATE TABLE B_B2BDWH_E_NATIONALITY (
+	nationalityid integer,
+	errorDate datetime,
+	errorMessage varchar(200));
+
+CREATE TABLE B_B2BDWH_E_ORDERS (
+	orderid bigint,
+	errorDate datetime,
+	errorMessage varchar(200));
+
+CREATE TABLE B_B2BDWH_E_PRODUCT (
+	productId integer,
+	errorDate datetime,
+	errorMessage varchar(200));
+
+CREATE TABLE B_B2BDWH_E_SUBCATEGORY (
+	subcategoryid integer,
+	errorDate datetime,
+	errorMessage varchar(200));
+
+
+CREATE TABLE C_B2BDWH_E_ORDER_STATUS (
+	OrderId float,
+	errorDate datetime,
+	errorMessage varchar(200));
+
+CREATE TABLE C_B2BDWH_E_USER_LOGIN (
+	username varchar(20),
+	errorDate datetime,
+	errorMessage varchar(200));
+

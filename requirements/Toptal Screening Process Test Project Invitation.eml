@@ -1,0 +1,487 @@
+Received: from DU0P250MB0433.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:345::17)
+ by PAXP250MB0700.EURP250.PROD.OUTLOOK.COM with HTTPS; Tue, 4 Oct 2022
+ 17:58:29 +0000
+Received: from BN9PR03CA0276.namprd03.prod.outlook.com (2603:10b6:408:f5::11)
+ by DU0P250MB0433.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:345::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5676.28; Tue, 4 Oct
+ 2022 17:58:27 +0000
+Received: from BN7NAM10FT011.eop-nam10.prod.protection.outlook.com
+ (2603:10b6:408:f5:cafe::d3) by BN9PR03CA0276.outlook.office365.com
+ (2603:10b6:408:f5::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5676.24 via Frontend
+ Transport; Tue, 4 Oct 2022 17:58:27 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.167.45)
+ smtp.mailfrom=toptal.com; dkim=pass (signature was verified)
+ header.d=toptal.com;dmarc=pass action=none
+ header.from=toptal.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of toptal.com designates
+ 209.85.167.45 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.167.45; helo=mail-lf1-f45.google.com; pr=C
+Received: from mail-lf1-f45.google.com (209.85.167.45) by
+ BN7NAM10FT011.mail.protection.outlook.com (10.13.156.250) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5676.17 via Frontend Transport; Tue, 4 Oct 2022 17:58:26 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:F3CD3F33F88D5D0CC03491483B7A1406840B3D0CBE87B31EBF3D65816BBAACF5;UpperCasedChecksum:97D428AD26041A5216024FBC910CE8A5E671F788DB9E41E5E8321CAE4CE92B74;SizeAsReceived:2389;Count:14
+Received: by mail-lf1-f45.google.com with SMTP id j16so22252473lfg.1
+        for <rocco.caliandro@hotmail.com>; Tue, 04 Oct 2022 10:58:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=toptal.com; s=google;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date;
+        bh=nX8Q7USaW1RZdijJjk4nIlmEd56aw4C8vPDA3+SAd74=;
+        b=HO/pmvD2OJNsWLEXgO/kU9Yz6CHgZjKAgIfzOqKBHGyU4FWgM6ox8e2BY09yRUvqgg
+         h7fyV5mTp5JotZbKhtPFpnsy28crdh2H5cAhJ/0XOihyXnKhMz1Pw+RMroZrisEIBQSF
+         6OtHbIs+4EdDpTurzx37DhzQvOHQQWK+3hmwSkcc8VGDtWuK/rAiLEMLjAyCmM+XbbcB
+         78jx8+cR2KJjndxEKUg4TsaRH2VWPPJdOpbxaIAJr2gfLs+tXalB8Mh4+/WhDqFx+kqy
+         cpWZNJqDzG6Nr9mhsvCV9SuatLXm193iYuljJIokajxVRQVkTJ8lIQPzSHrS5Xt3CDwA
+         12Iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date;
+        bh=nX8Q7USaW1RZdijJjk4nIlmEd56aw4C8vPDA3+SAd74=;
+        b=LaPFiugdXvSzeVrF7t7Oe11d83RK7eBSasC88CBHNFCLGHtczSp4Q1S91pdW2RTz2Z
+         mmhp6BC+vXfQ9Fe4RnSZ4gAE/TT29OlFe9I/mUDdBhEUVbK9JlSJ7eoySp/2TtDx4VSx
+         8f9BCVLhvrmaJPMW/KmleERsNwGGdjG45NZQf89axn8HbMrqo2ZMjCzorygVwwiL9X9j
+         k87UoyePGnkv38rEQs3AncR/hQQSNJ4wEAnJkr7IbV6LhxyTlDp9YUi8UfRU/lRKbcQ3
+         tmEaKwXO4uKfpwtHE5sxk1fbhSeaY1V8I6QlL7xWN0S1SJWOR3VOv44jowuUb57uegT7
+         2lXw==
+X-Gm-Message-State: ACrzQf2aVapbkxOHElWU5d3duSOI/HEJqPDOuhOcDfyqBaYYZOWq7NhX
+	eHZEthS8eekopFPUsuqI2cWwvgaBRCY3gblGkMO5V4FqWOU=
+X-Google-Smtp-Source: AMsMyM6K06jVk8viOK8SaYdDPB903KFcwC+bmlcNJ9fOqgHGCXDr3oWRYFhzO24NDM5IGXPyqvucnmfeh/Mt+XC7D0s=
+X-Received: by 2002:a05:6512:139c:b0:48f:da64:d050 with SMTP id
+ p28-20020a056512139c00b0048fda64d050mr8622110lfa.268.1664906305915; Tue, 04
+ Oct 2022 10:58:25 -0700 (PDT)
+Received: from 527637652541 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 4 Oct 2022 13:58:24 -0400
+From: Bruno Carvalho <b.carvalho@toptal.com>
+Date: Tue, 4 Oct 2022 13:58:24 -0400
+Message-ID: <CA+=BjPQo7PZQyAYHpmU3Htk-DVAhxU-sHaOTU6vSg-qgwggDDw@mail.gmail.com>
+Subject: Toptal Screening Process: Test Project Invitation
+To: Rocco Caliandro <rocco.caliandro@hotmail.com>
+Content-Type: multipart/alternative; boundary="000000000000f331e805ea3934b9"
+X-IncomingHeaderCount: 14
+Return-Path: b.carvalho@toptal.com
+X-MS-Exchange-Organization-ExpirationStartTime: 04 Oct 2022 17:58:26.9338
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 90391f2a-c41d-48b0-cc0d-08daa63209cc
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN7NAM10FT011:EE_|DU0P250MB0433:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BN7NAM10FT011.eop-nam10.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 10/4/2022 5:50:40 PM
+X-MS-Office365-Filtering-Correlation-Id: 90391f2a-c41d-48b0-cc0d-08daa63209cc
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.167.45
+X-SID-PRA: B.CARVALHO@TOPTAL.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Oct 2022 17:58:26.9026
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90391f2a-c41d-48b0-cc0d-08daa63209cc
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BN7NAM10FT011.eop-nam10.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0P250MB0433
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.1067077
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.5676.024
+X-Microsoft-Antispam-Mailbox-Delivery:
+	abwl:0;wl:0;pcwl:0;kl:0;iwl:0;ijl:0;dwl:0;dkl:0;rwl:0;ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(90000117)(90013020)(91025020)(91040095)(5061607266)(5061608174)(9050020)(9060121)(9100338)(2008001134)(4810004)(4910033)(8810097)(9930004)(9545005)(10172021)(9320005);
+X-Message-Info:
+	qZelhIiYnPnHMtpouyTUo9yR22xOUOCkviZod9uRMAPxlEsAWSyTzlWRbY1GcbvdQE7w0JI6PE1ecuJKKQFSezp610MLknOeZlC+Kw5NV95KztaZkEH1cdGnzHhZQdb/311JnrttMseHEBre6tw2O/UULzehBkdLf8AUV7Vp89CiRlaFPCgyyP76gL6IBaNaMRaAGaN2emWhe2LZXqclyA==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0yO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?RUNvL2JYOFBKN1V2RTNhUXRGYS8vT1ROalFtdDdWZ3NCTXZCN3VEdjVUTjh1?=
+ =?utf-8?B?cHduVXNueWFPdnA2d3VRaHVCY3VHdzhQc2YzZEYxR3RtTnJsZXVzUWdEN2tl?=
+ =?utf-8?B?bUMweFJXNG9ucjlucVpSdy9ST0pwOU5IN3BkTkg1ZFo0TVhHWDF1dFhLQ2tH?=
+ =?utf-8?B?NmRhL2NzTXlBUTkvMCthVmd4cGE5ck1VNmw2aHFobmNmU0NaU29yZzFXSHF2?=
+ =?utf-8?B?cGlIMjBzUDdOTktiK2NXMmhRcmpSWHlnU3VtRkFISFU3MlV4TEJ5M0ZIcTZM?=
+ =?utf-8?B?UEtheXZoa0RnU0ZBYjhEYjd4NjFsb29GMnU3Ymdhbmw0SmdPTFZLekFvSUU5?=
+ =?utf-8?B?ZENHclJXZGg4MXphTjd6V2xkUG5obGhqWVhuczFpRHA0aXdLR0J2dFB0RTFo?=
+ =?utf-8?B?Njdpc1pvK0NwYm1TbSs5S1dSOWRGU29jdW0yMzJlQ1o2UUxmTkZuVjE0ajEy?=
+ =?utf-8?B?NjJIR1pWTFY4K1NDUlpwQTZiamZ0YVhxRkdHMGZZS2dnSXZMaE16aHl0Sk0x?=
+ =?utf-8?B?dmM3YjFmYklKNlJXd0t0ODVZU3h5WkZEd2tjYm5jVVJLc0Mycm5vRlRJYzNH?=
+ =?utf-8?B?eW9PdFhHMVhiclNKQlpldzlDaStyUnkrOG56dDR6dnZmaTZBcWo2cFBpSk9k?=
+ =?utf-8?B?T2dhZE8xaVZNY1kwTDAwOE53R0JPK2s2bzRGRGtDOWdMYWhLek1rS2NRcnRo?=
+ =?utf-8?B?TC92QmlFWU9sUUxkaGsyb0JMemdlZUtzeEpBbkNYMWtNR2ROSnpLUHU1OEFG?=
+ =?utf-8?B?ckU2RjYvYkhvQ2VoWVBDZFdBTWlsN2xMbVpIcmtxMDdVeG1Fc2hJeHczWU8z?=
+ =?utf-8?B?S0hhRkx5UVhDV2l2ZGc1QWtYZVZNMzk5OXR2NVQwK1labzVOQ1NmaDM5WHQ2?=
+ =?utf-8?B?cS9RWGxmSFRKbzVKbGVqWDVRajJMVWx3Qmw0R2NkT2tFWE51ZmJqMlROaXk5?=
+ =?utf-8?B?bDlPS3E1SlpVL010Zzd4UjhCUW9sVWRtWkh6M2ZHYXY1TjFOSUJlL0JhSHFS?=
+ =?utf-8?B?N3VQMFZNSFl2dndFbURMU2VZdHh4TE9HR1gyMjBkYk4wYlFpZkRLV3ZlTERI?=
+ =?utf-8?B?d0hWK2xGaUg2N1FHaFBTVkJzM0NNcGJGb2ZYSVNCdEJCdU5MbDVvVmRZT3ZX?=
+ =?utf-8?B?WUNZU3hOTytZSXNxRXdQSHFLejU0TFRDVkpwSE14UnBCUGd2bnhRSDNTaDZE?=
+ =?utf-8?B?eWZKQTh1WG9mUTRwSE1aMkdMK0FBZjBzY2ViWEk2aFNqSVdnbjV5K2Nyek9U?=
+ =?utf-8?B?b0Fnb0pDMU5QZURGcUI1eU1sMHZHc24zVVF6d2d4M3d1TWpoeWF6a21FV2R6?=
+ =?utf-8?B?YnNsZjZIRmprK3o2RUFUYnJ0N0lNZlJUQnBDMFE5eXdxM3QxRTlIbmpNdFNu?=
+ =?utf-8?B?Nzk1ejNlRmxibG0xSGcybHhsazlCS1U2RHNraE5yMDNKL0JBTlgwejVsTGhm?=
+ =?utf-8?B?MnhWaktXK09KZnQwY3BDekoyeDhiN0tobUJhUEVGYUZHMEFsWit6UVoydjFG?=
+ =?utf-8?B?RmMwQzM0b09XOWFmSjVRZ0Voa1NjQWtIWlpjY21IS2E1bmd1MUNXWVpaWnFa?=
+ =?utf-8?B?bkRraWlnTFdBZ1RrRS9IdnMyTjRpRkZ3Wm12ZzJNUDJFUUZxeVpXSGE0eCtT?=
+ =?utf-8?B?OCtVKzNSeUVSV0NWNjJ4R1dxZW9EbmhFTlhFNVRKK09PdXZwandwQjM5N1Ft?=
+ =?utf-8?B?TllvSm84KytUWGdxR001dTBqQjV5YkVNZ010NHZiTHIzMlZIVXZpVnlpTng4?=
+ =?utf-8?B?YjJGWjlwaFk5RnBRcmxmS3ZaSHg1dVZKdnNzb1F5RW5OendrWlgxblhIMmJ5?=
+ =?utf-8?B?Yksrdnc0UEhmNEVmTmZGVVI0WDRPdHc5TmZHcml6TWxRQW04RjVtUmxzblhY?=
+ =?utf-8?B?RjZyYjNtb24zdC9qY09hRnVzYmZiQzdTSTFKbXlkR2FXbVZ4WngzQVF6cktJ?=
+ =?utf-8?B?Q3V5MEJpUmxZOHFqK1M5MnFyWG4zVWZDMUlpQTBKbjNwT21PNkhOa04vT1JZ?=
+ =?utf-8?B?TjN4M0NzdHdsSnhScjZwWXRVV3l6N3U3RXF0ajAyUkhaYkdsb0FETmY3NWhX?=
+ =?utf-8?B?YXRqME1RaFpad3lDSHhIY1BmWkNwS0ZmWnd2THZNRCtPRnpvNTFPeU5EYmlq?=
+ =?utf-8?B?T0dJQm15QnFtMlh0cy9IWXJhc1U5V01icWEvekF3enpUbklVL1ZRbWRlWmk4?=
+ =?utf-8?B?VDhTQjJKcHQrM1c5Z1FiUnorMjNRZ3R1S2xDd3JYeTQvOGdqakI3dkd1OUMy?=
+ =?utf-8?B?Sm91VGs2d2dtTmdyeVB0MkhnWjI3ZkRlOTI0T0xnKzJkdktNbzZNN3BETDhE?=
+ =?utf-8?B?VXFSKzFWV1dYc2dkblI2YXhidWpxTXgzci9LdnJTYnRjbnNMbllMVmVVbUI1?=
+ =?utf-8?B?V080Vy92U2JOVEp1VURoRkZ5VWtaeEoxbmJaaGVhckJPUzVoVnNTL0YvUTNk?=
+ =?utf-8?B?UEZ3RnJvU3FWa3YzSFE9PQ==?=
+MIME-Version: 1.0
+
+--000000000000f331e805ea3934b9
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Rocco,
+
+It was great speaking to you earlier. Congratulations on passing this
+portion of the Toptal developer screening process!
+
+The second developer interview evaluates your skills via a take-home
+project. You will find the project requirements in this email. Please treat
+this project as if you are delivering it to a client.
+
+The requirements for the test project are:
+https://topt.al/xVcZqd
+
+Please use this private repository to version-control your code:
+https://git.toptal.com/screening/Rocco-Caliandro
+Username: rocco.caliandro@hotmail.com
+Password: fHYxeGUS8n9Tk
+
+Helpful take-home project guidelines:
+
+=E2=80=A2 This project will be used to evaluate your skills and should be f=
+ully
+functional without any obvious missing pieces. We will evaluate the project
+as if you were delivering it to a customer.
+=E2=80=A2 The deadline to submit your completed project is 7 days from the =
+date you
+received the project requirements.
+=E2=80=A2 If you schedule your final interview after the 7-day deadline, ma=
+ke sure
+to submit your completed project and all code to the private repository
+before the deadline. Everything that is submitted after the deadline will
+not be taken into consideration.
+=E2=80=A2 If you schedule your final interview before the 7-day deadline, m=
+ake sure
+to submit your completed project and all code to the private repository
+before the scheduled call.
+=E2=80=A2 Please join the meeting room for this final interview on time. If=
+ you
+miss your interview without providing any prior notice, your application
+may be paused for 6 months.
+
+Please schedule an interview time
+<https://www.toptal.com/track/dlBNMXpqTzNtSjJNQkFPdjRxU2dkMXg4K0tYUzc2Y05CK=
+05ta0REZkpGUitBaG5QaHRsaHMyQkxxNTV0TjhrakxaSXhleEUveEVVSzhsTnNVamtUMUdpVUM2=
+M2RsbDExNU44dmZoT1pkN3J3aHNNZ3lCSGU0dkpMODdJOERsRHpIZEU3RE00a1VXNWdiaG1ueXB=
+JQUdOZWltZTBZd3ZOWEZXbWQvQ1RKc0NBSHE5RTMzRkpMclBiTjVtT1pqL1l2WVZtWWF3T0Vsa2=
+c5MVVQUzg1ZjQ1bTlMV0luQTF5MldzdHVtenJOanBaNjVrV0ZmdUFJM3FieEk5aHg3VXkvK2U2Z=
+U1xa1h2VDdpc3N6ZFJTZUV5RVExR3poNkFiS3BwRFZxTDFLZEdqbko0aXVVN2U2NUlKc25UMDZH=
+dmJCRUsrQk1RWk04Q1htQVZLREdGYjlPWTdLN3FWL2RhOVdjb1FlNFhBa3lRVHllNURSUVZ0b2J=
+NRE9jdi9tRVgyOVdPMUpLQ0FPT1NyNm16N3Z2cXhQbHdvWUlKOS90RjNhUEl5UDJNVkZPc3JIK2=
+5rc2NaOTBGek1vZEJBRXBGZ3cxci0tYk1ubnB6STlJME96a0Q3Y1J1VHFIQT09--f161d0b8cb8=
+44a488d50354bdacd0446da5307d6>
+that is most suitable for you. Bear in mind that you will need to present a
+finished project during this interview.
+
+Once you pick an appointment time, we=E2=80=99ll email you with additional =
+meeting
+details and the contact details of another senior developer from our team
+who will assess your project and conduct your next interview. *They are
+acting as your client for this project and are your point of contact for
+any questions you may have during the development of this project.*
+
+Thanks,
+Bruno
+
+Bruno Carvalho
+<https://www.toptal.com/track/M0J3THVJbFJ1UVdyNXZOUVA3K3RKMnd3eE1tRnVLaDZlR=
+GQ5aDYyMkFXU2c0c2d0Q2htaHNWV0JHWHpQcWwrWmtxaThXcnBmSHFiL3hYMjI1TU1DZ1hZYnFR=
+QjQyc0FidHdOTmQxVFd2TlY4clNMNUNxYVFSaTZaK1VaMFlDcWYyYUhpYjhpWW85amhIckUrNlR=
+wY1VodTY1bTZKL3Y0MEora2dXNlFKWWtVV3FDMW90ZG9EUjZSNFFvVXVjQWlRTzJrVFFEQ2YzdF=
+lBaUVjbzZxNlZZay9nWldjd0ZsSUpUSTlHRUZCQUhuWTM2VXBJbWk3cDVhRGdhdjZyUmJEa0IzZ=
+Wk2VGRoaDJUNXpES3pOTy9NVzVVM3o4VnhnbEtSbEs3NmsvSUcvTk09LS01WW1qV1lDR294ZDBw=
+cWg1V0RwLzNBPT0=3D--c49b34215c81a468d020863777bcc1cb36d09546>
+
+Phone: +16503992144
+[image: Toptal] The World=E2=80=99s Top Talent, On Demand=E2=84=A2
+[image: LinkedIn]
+<https://www.toptal.com/track/VWhYSUZ0c1ZuM21RVHJGRFVPNlkxUHdJTy95Qjh1a0NVQ=
+UhoWi84MG41YTd5UWg4K291U2YvT2NZbHdmWXVRUDZjUDVhWVVSYkRQbDNtZXovZWJaTnFwbzZE=
+dzU3Ulo3NE5kUjhQRkRIRzA5V3pncE1nUFBSS3N5VjVucjdIdERJNVZvdDFOY09uU0hJc0diMUp=
+GNEcyeHY5Y2p1Z3RDeHIyRnNhd1JjM01TR3dQdmsrYlUwOHB5NzE5YVBkSXhobU8wVU83c21UcH=
+lQdHI2U3VNbkNWNlRVU0NmR3hkRXFUQmwyd1A0dC9VQ0lva29zck9UQVdNd2lLQ05HeW44SWpWQ=
+mV5bWY4K3VacmZqWnYyb1lMeTIrYll6MG05NGtZYThhc3Yyakh3V09yMGlYRmhjb1VObExmMWlH=
+WGs3ZDZvYVV6aUQ4djJDajVyRlRqRys5QnJBPT0tLXFXL1FNRDY1aW1iNDB5VGhZR0J0WVE9PQ=
+=3D=3D--63c16cc2780cb1fa86b6a369d8738b33140f3885>
+[image:
+Facebook]
+<https://www.toptal.com/track/QWIvYzh2MUZjV1FxenNQRHdTK3dWVWM4OHlRSHNPQzArc=
+UNZNDB5Ny8rVHlCLzUxQzloR3VWWDJvbWlPYjR3Q2txK0F2SUJIS1lSSk9BbFRvTFI3OEY2T2Ro=
+Um5DYTZ1dnB3a1Y1VVhYeGFuZ1NFTzZQOFFPTE4wRExaNVhqVlRFaldFUExsZ0xGckFVWEUraUR=
+RaDVGNHRwbzdaOXkzOW5pSjRtQmpqbTg1Tjd4RXNUeHlPSmtxTE1kMEtzMGkzU3BBOThveXIyWX=
+JsWHdYT2pNMnhCQ3lpOTRUQmV2WE8zZ1RPRGxtN2VFZEJYWndZR1NEb3ZUT1JTZDErckk4alVPa=
+WpURnZKR3lvTW1mTUorUHBhMWtXVWRrMTlXdXBBeFFKdWdEOXBjOUhjTDR0WGlLRWhHcGIvcm9H=
+Wm4zY0ltOTI2UDlkL2RVcllaSlNTUlBaTDFBPT0tLWRFWGJvWW1mbHY4UXJNM1RIYzhZWmc9PQ=
+=3D=3D--60403108b5d95e9553d2c2e03b7da41c192c82a5>
+[image:
+Twitter]
+<https://www.toptal.com/track/ei9pY1dublZIRjNaZnZSSTZpdHkzZURUblBXdTdjM2ZKW=
+EVoNGRiWXRZRVNOTS8zWk1VTUpMYkZxRFZYR0lnMlo5T1pDUTNoQkxWK1RsTDgvZUEvUlpRNHNS=
+U0hPKyt2MVBGSGs1ZURhTDBTMndPSHovcjd2T09qeFl0VkgvOGFrQ0h0SkwwRHVqWG9tWlNPcEh=
+mL1k2MjhXQzh2cTBtYSthOC83Z0t3WnNxZmFMZGZVOXNOeXFqNWtPbThyZ0d4bGc1cU1SMjVJWT=
+B6WThQbGFWR2xGa203aHZwa0hlSnpqb3dEN0h6a1ViSDZRc3VRSGJMYTRSMVZ0QllWYlpubzQ0U=
+XdRTVNiRTltdU5DUzh4ZjBXQTVRVlVmNXNVOVArdGJxbWtrdVgzYmNPdFpPZEhBb01nT3NRUko1=
+Vk1lK2stLWM0NzBMUTMvQkdyMXNkU2JwNmdzWkE9PQ=3D=3D--89eb4f351855571824bef779b=
+52462a60c692bdb>
+[image:
+Instagram]
+<https://www.toptal.com/track/ck9iVWZIU1o1anZkK0F5VEtpWXN2aFRHMkltVERtS2Z1b=
+3dKWXhnY1UwOC9GRW12MGZOMnc1d0pIS3Qxb1FaSCs2TlgwRlNIN1JGL3lZTWV4cUFzL0ZOZVhU=
+WnlhMzMyb3I5aFVRVXZDWVI1WkR5QlN4WjVjaWhBd2F6WEJhM3BjUlM5OTFNSlJDN2lNZmdzbzZ=
+NTWNocU9Oa0c2QTBRNGlyUjJSekVwc0dkd29VRUlFcVRoViszOEdJcm1pZjJucVJiSFNTc0ZVQ2=
+1KMnZPN3RCYlNuaWpVVlh5OEd5Y25IMzN2TGpuSEFOUVJucTNUckp3T1hLOFRwNkxkb3Q1TE54a=
+C81WDUzd1JVNTU0clA3aTJQanBZTnlNcnphd3BOemgwZ3h5OHJWMk15cVNpaWJ6Zzh2V05uNSti=
+elhTdkdLQkd3Vy8zWVZDREVnUXUxSmVaUThRPT0tLTFiZzFzSXhKYXJFWU04cEw5Y3Yvc1E9PQ=
+=3D=3D--775fb9dc2d98a2386b142328c96526a491408647>
+toptal.com
+<https://www.toptal.com/track/c3dTZWx0TVBxV09YbWhhVHduNWE5elpyZURIQmR1RC95Z=
+W16YmpwS1A2K010cnYvNVcxS21sS2RiNzh4aDZ3eTlZMjE2Q2p5T2JZUjFaWGd5WHVCeFgyMjVW=
+NUxmYlAveHFZbVRsbTZqQWNVQ3p1QUlWN3NrTEt2ZURnOXVzdTZZM01VMVFWcjdnSjVsZUx6M2Q=
+vb0lyUEZiUVR1NzV0SC9aWm5ocnZaeEVCbjNSYVRybXQ3dGQ2bTdLRVhwbm5sb012bXNlYWV2WV=
+ZvYk9TemZudDdDVjgyTHh5Zm9vSnFSQW9BK083VWRYNXRQQnRMVWp3WHhTTzR2Q1FGMXpJZEgyb=
+DhsU29PR3VWcFlQMHJkSndJbnowNUI4T3JSZEo3ZWlQeUdqMjZyajA9LS1Mbm94cDBnbmw5bm1R=
+MTU4WHk1ZC9nPT0=3D--1fdacc9d6d000b1889892a6f07be07e3f16856b9>
+
+--000000000000f331e805ea3934b9
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+   =20
+  </head>
+  <body>
+    <p style=3D"margin-bottom:1em">Hi Rocco,</p>
+
+<p style=3D"margin-bottom:1em">It was great speaking to you earlier. Congra=
+tulations on passing this portion of the Toptal developer screening process=
+!</p>
+
+<p style=3D"margin-bottom:1em">The second developer interview evaluates you=
+r skills via a take-home project. You will find the project requirements in=
+ this email. Please treat this project as if you are delivering it to a cli=
+ent.</p>
+
+<p style=3D"margin-bottom:1em">The requirements for the test project are:<b=
+r>
+<a href=3D"https://topt.al/xVcZqd">https://topt.al/xVcZqd</a></p>
+
+<p style=3D"margin-bottom:1em">Please use this private repository to versio=
+n-control your code:<br>
+<a href=3D"https://git.toptal.com/screening/Rocco-Caliandro">https://git.to=
+ptal.com/screening/Rocco-Caliandro</a><br>
+Username: <a href=3D"mailto:rocco.caliandro@hotmail.com">rocco.caliandro@ho=
+tmail.com</a><br>
+Password: fHYxeGUS8n9Tk</p>
+
+<p style=3D"margin-bottom:1em">Helpful take-home project guidelines:</p>
+
+<p style=3D"margin-bottom:1em">=E2=80=A2 This project will be used to evalu=
+ate your skills and should be fully functional without any obvious missing =
+pieces. We will evaluate the project as if you were delivering it to a cust=
+omer.<br>
+=E2=80=A2 The deadline to submit your completed project is 7 days from the =
+date you received the project requirements.<br>
+=E2=80=A2 If you schedule your final interview after the 7-day deadline, ma=
+ke sure to submit your completed project and all code to the private reposi=
+tory before the deadline. Everything that is submitted after the deadline w=
+ill not be taken into consideration.<br>
+=E2=80=A2 If you schedule your final interview before the 7-day deadline, m=
+ake sure to submit your completed project and all code to the private repos=
+itory before the scheduled call.<br>
+=E2=80=A2 Please join the meeting room for this final interview on time. If=
+ you miss your interview without providing any prior notice, your applicati=
+on may be paused for 6 months.</p>
+
+<p style=3D"margin-bottom:1em">Please <a href=3D"https://www.toptal.com/tra=
+ck/dlBNMXpqTzNtSjJNQkFPdjRxU2dkMXg4K0tYUzc2Y05CK05ta0REZkpGUitBaG5QaHRsaHMy=
+QkxxNTV0TjhrakxaSXhleEUveEVVSzhsTnNVamtUMUdpVUM2M2RsbDExNU44dmZoT1pkN3J3aHN=
+NZ3lCSGU0dkpMODdJOERsRHpIZEU3RE00a1VXNWdiaG1ueXBJQUdOZWltZTBZd3ZOWEZXbWQvQ1=
+RKc0NBSHE5RTMzRkpMclBiTjVtT1pqL1l2WVZtWWF3T0Vsa2c5MVVQUzg1ZjQ1bTlMV0luQTF5M=
+ldzdHVtenJOanBaNjVrV0ZmdUFJM3FieEk5aHg3VXkvK2U2ZU1xa1h2VDdpc3N6ZFJTZUV5RVEx=
+R3poNkFiS3BwRFZxTDFLZEdqbko0aXVVN2U2NUlKc25UMDZHdmJCRUsrQk1RWk04Q1htQVZLREd=
+GYjlPWTdLN3FWL2RhOVdjb1FlNFhBa3lRVHllNURSUVZ0b2JNRE9jdi9tRVgyOVdPMUpLQ0FPT1=
+NyNm16N3Z2cXhQbHdvWUlKOS90RjNhUEl5UDJNVkZPc3JIK25rc2NaOTBGek1vZEJBRXBGZ3cxc=
+i0tYk1ubnB6STlJME96a0Q3Y1J1VHFIQT09--f161d0b8cb844a488d50354bdacd0446da5307=
+d6">schedule an interview time</a> that is most suitable for you. Bear in m=
+ind that you will need to present a finished project during this interview.=
+</p>
+
+<p style=3D"margin-bottom:1em">Once you pick an appointment time, we=E2=80=
+=99ll email you with additional meeting details and the contact details of =
+another senior developer from our team who will assess your project and con=
+duct your next interview. <strong>They are acting as your client for this p=
+roject and are your point of contact for any questions you may have during =
+the development of this project.</strong></p>
+
+<p style=3D"margin-bottom:1em">Thanks,<br>
+Bruno</p>
+
+<table style=3D"vertical-align:middle;font-family:Arial;font-weight:400;bor=
+der-spacing:0"><tbody><tr style=3D"vertical-align:middle"> =20
+  <th><table style=3D"vertical-align:middle;border-spacing:0"><tr style=3D"=
+vertical-align:middle"><th> =20
+    <table style=3D"vertical-align:middle;border-spacing:0"><tbody><tr styl=
+e=3D"vertical-align:middle"> =20
+      <td><div style=3D"border-top-width:1px;border-top-color:#262d3d;borde=
+r-top-style:solid;border-bottom-width:1px;border-bottom-color:#262d3d;borde=
+r-bottom-style:solid;padding-top:12px;padding-bottom:12px;width:270px;min-w=
+idth:270px;margin-top:12px"> =20
+        <p style=3D"color:#455065;font-size:11px;font-weight:400;line-heigh=
+t:16px;margin:0;padding:0" align=3D"left"><a href=3D"https://www.toptal.com=
+/track/M0J3THVJbFJ1UVdyNXZOUVA3K3RKMnd3eE1tRnVLaDZlRGQ5aDYyMkFXU2c0c2d0Q2ht=
+aHNWV0JHWHpQcWwrWmtxaThXcnBmSHFiL3hYMjI1TU1DZ1hZYnFRQjQyc0FidHdOTmQxVFd2TlY=
+4clNMNUNxYVFSaTZaK1VaMFlDcWYyYUhpYjhpWW85amhIckUrNlRwY1VodTY1bTZKL3Y0MEora2=
+dXNlFKWWtVV3FDMW90ZG9EUjZSNFFvVXVjQWlRTzJrVFFEQ2YzdFlBaUVjbzZxNlZZay9nWldjd=
+0ZsSUpUSTlHRUZCQUhuWTM2VXBJbWk3cDVhRGdhdjZyUmJEa0IzZWk2VGRoaDJUNXpES3pOTy9N=
+VzVVM3o4VnhnbEtSbEs3NmsvSUcvTk09LS01WW1qV1lDR294ZDBwcWg1V0RwLzNBPT0=3D--c49=
+b34215c81a468d020863777bcc1cb36d09546" style=3D"text-decoration:none">Bruno=
+ Carvalho</a></p>
+ =20
+       =20
+ =20
+         =20
+           =20
+          <p style=3D"color:#455065;font-size:11px;font-weight:400;line-hei=
+ght:16px;margin:0;padding:0" align=3D"left">Phone: <a href=3D"tel:+16503992=
+144" style=3D"text-decoration:none;color:#455065">+16503992144</a></p> =20
+       =20
+ =20
+       =20
+ =20
+         =20
+      </div> =20
+    </td></tr></tbody></table> =20
+    <table style=3D"vertical-align:middle;border-spacing:0"><tbody><tr styl=
+e=3D"vertical-align:middle"> =20
+      <td style=3D"width:85px;min-width:85px;padding:8px 0 4px" valign=3D"m=
+iddle"> =20
+        <img alt=3D"Toptal" src=3D"https://assets.toptal.io/assets/front/st=
+atic/emails/common/logo@2x_0e9524.png" style=3D"width: 77px;"> =20
+      </td> =20
+      <td style=3D"font-size:11px;font-weight:400;color:#455065;padding-top=
+:13px" valign=3D"middle"> =20
+        The World=E2=80=99s Top Talent, On Demand<small style=3D"color:#455=
+065;font-size:6px;vertical-align:4px">=E2=84=A2</small> =20
+      </td> =20
+    </tr></tbody></table> =20
+    <table style=3D"vertical-align:middle;padding-top:5px;border-spacing:0"=
+><tbody><tr style=3D"vertical-align:middle"> =20
+      <td style=3D"font-size:11px;width:85px;min-width:85px" valign=3D"midd=
+le"> =20
+        <a href=3D"https://www.toptal.com/track/VWhYSUZ0c1ZuM21RVHJGRFVPNlk=
+xUHdJTy95Qjh1a0NVQUhoWi84MG41YTd5UWg4K291U2YvT2NZbHdmWXVRUDZjUDVhWVVSYkRQbD=
+NtZXovZWJaTnFwbzZEdzU3Ulo3NE5kUjhQRkRIRzA5V3pncE1nUFBSS3N5VjVucjdIdERJNVZvd=
+DFOY09uU0hJc0diMUpGNEcyeHY5Y2p1Z3RDeHIyRnNhd1JjM01TR3dQdmsrYlUwOHB5NzE5YVBk=
+SXhobU8wVU83c21UcHlQdHI2U3VNbkNWNlRVU0NmR3hkRXFUQmwyd1A0dC9VQ0lva29zck9UQVd=
+Nd2lLQ05HeW44SWpWQmV5bWY4K3VacmZqWnYyb1lMeTIrYll6MG05NGtZYThhc3Yyakh3V09yMG=
+lYRmhjb1VObExmMWlHWGs3ZDZvYVV6aUQ4djJDajVyRlRqRys5QnJBPT0tLXFXL1FNRDY1aW1iN=
+DB5VGhZR0J0WVE9PQ=3D=3D--63c16cc2780cb1fa86b6a369d8738b33140f3885" rel=3D"n=
+oopener noreferrer" target=3D"_blank" style=3D"text-decoration:none"> =20
+          <img alt=3D"LinkedIn" src=3D"https://assets.toptal.io/assets/fron=
+t/static/emails/common/social_icons/linkedin_73f2ef.png" width=3D"14" heigh=
+t=3D"14" style=3D"display: inline-block; height: 14px; padding-right: 3px;"=
+> =20
+        </a> =20
+        <a href=3D"https://www.toptal.com/track/QWIvYzh2MUZjV1FxenNQRHdTK3d=
+WVWM4OHlRSHNPQzArcUNZNDB5Ny8rVHlCLzUxQzloR3VWWDJvbWlPYjR3Q2txK0F2SUJIS1lSSk=
+9BbFRvTFI3OEY2T2RoUm5DYTZ1dnB3a1Y1VVhYeGFuZ1NFTzZQOFFPTE4wRExaNVhqVlRFaldFU=
+ExsZ0xGckFVWEUraURRaDVGNHRwbzdaOXkzOW5pSjRtQmpqbTg1Tjd4RXNUeHlPSmtxTE1kMEtz=
+MGkzU3BBOThveXIyWXJsWHdYT2pNMnhCQ3lpOTRUQmV2WE8zZ1RPRGxtN2VFZEJYWndZR1NEb3Z=
+UT1JTZDErckk4alVPaWpURnZKR3lvTW1mTUorUHBhMWtXVWRrMTlXdXBBeFFKdWdEOXBjOUhjTD=
+R0WGlLRWhHcGIvcm9HWm4zY0ltOTI2UDlkL2RVcllaSlNTUlBaTDFBPT0tLWRFWGJvWW1mbHY4U=
+XJNM1RIYzhZWmc9PQ=3D=3D--60403108b5d95e9553d2c2e03b7da41c192c82a5" rel=3D"n=
+oopener noreferrer" target=3D"_blank" style=3D"text-decoration:none"> =20
+          <img alt=3D"Facebook" src=3D"https://assets.toptal.io/assets/fron=
+t/static/emails/common/social_icons/facebook_67795b.png" width=3D"14" heigh=
+t=3D"14" style=3D"display: inline-block; height: 14px; padding-right: 3px;"=
+> =20
+        </a> =20
+        <a href=3D"https://www.toptal.com/track/ei9pY1dublZIRjNaZnZSSTZpdHk=
+zZURUblBXdTdjM2ZKWEVoNGRiWXRZRVNOTS8zWk1VTUpMYkZxRFZYR0lnMlo5T1pDUTNoQkxWK1=
+RsTDgvZUEvUlpRNHNSU0hPKyt2MVBGSGs1ZURhTDBTMndPSHovcjd2T09qeFl0VkgvOGFrQ0h0S=
+kwwRHVqWG9tWlNPcEhmL1k2MjhXQzh2cTBtYSthOC83Z0t3WnNxZmFMZGZVOXNOeXFqNWtPbThy=
+Z0d4bGc1cU1SMjVJWTB6WThQbGFWR2xGa203aHZwa0hlSnpqb3dEN0h6a1ViSDZRc3VRSGJMYTR=
+SMVZ0QllWYlpubzQ0UXdRTVNiRTltdU5DUzh4ZjBXQTVRVlVmNXNVOVArdGJxbWtrdVgzYmNPdF=
+pPZEhBb01nT3NRUko1Vk1lK2stLWM0NzBMUTMvQkdyMXNkU2JwNmdzWkE9PQ=3D=3D--89eb4f3=
+51855571824bef779b52462a60c692bdb" rel=3D"noopener noreferrer" target=3D"_b=
+lank" style=3D"text-decoration:none"> =20
+          <img alt=3D"Twitter" src=3D"https://assets.toptal.io/assets/front=
+/static/emails/common/social_icons/twitter_435dc7.png" width=3D"14" height=
+=3D"14" style=3D"display: inline-block; height: 14px; padding-right: 3px;">=
+ =20
+        </a> =20
+        <a href=3D"https://www.toptal.com/track/ck9iVWZIU1o1anZkK0F5VEtpWXN=
+2aFRHMkltVERtS2Z1b3dKWXhnY1UwOC9GRW12MGZOMnc1d0pIS3Qxb1FaSCs2TlgwRlNIN1JGL3=
+lZTWV4cUFzL0ZOZVhUWnlhMzMyb3I5aFVRVXZDWVI1WkR5QlN4WjVjaWhBd2F6WEJhM3BjUlM5O=
+TFNSlJDN2lNZmdzbzZNTWNocU9Oa0c2QTBRNGlyUjJSekVwc0dkd29VRUlFcVRoViszOEdJcm1p=
+ZjJucVJiSFNTc0ZVQ21KMnZPN3RCYlNuaWpVVlh5OEd5Y25IMzN2TGpuSEFOUVJucTNUckp3T1h=
+LOFRwNkxkb3Q1TE54aC81WDUzd1JVNTU0clA3aTJQanBZTnlNcnphd3BOemgwZ3h5OHJWMk15cV=
+NpaWJ6Zzh2V05uNStielhTdkdLQkd3Vy8zWVZDREVnUXUxSmVaUThRPT0tLTFiZzFzSXhKYXJFW=
+U04cEw5Y3Yvc1E9PQ=3D=3D--775fb9dc2d98a2386b142328c96526a491408647" rel=3D"n=
+oopener noreferrer" target=3D"_blank" style=3D"text-decoration:none"> =20
+          <img alt=3D"Instagram" src=3D"https://assets.toptal.io/assets/fro=
+nt/static/emails/common/social_icons/instagram_86dba5.png" width=3D"14" hei=
+ght=3D"14" style=3D"display: inline-block; height: 14px; padding-right: 3px=
+;"> =20
+        </a> =20
+      </td> =20
+      <td style=3D"" valign=3D"middle"> =20
+        <a target=3D"_blank" href=3D"https://www.toptal.com/track/c3dTZWx0T=
+VBxV09YbWhhVHduNWE5elpyZURIQmR1RC95ZW16YmpwS1A2K010cnYvNVcxS21sS2RiNzh4aDZ3=
+eTlZMjE2Q2p5T2JZUjFaWGd5WHVCeFgyMjVWNUxmYlAveHFZbVRsbTZqQWNVQ3p1QUlWN3NrTEt=
+2ZURnOXVzdTZZM01VMVFWcjdnSjVsZUx6M2Qvb0lyUEZiUVR1NzV0SC9aWm5ocnZaeEVCbjNSYV=
+RybXQ3dGQ2bTdLRVhwbm5sb012bXNlYWV2WVZvYk9TemZudDdDVjgyTHh5Zm9vSnFSQW9BK083V=
+WRYNXRQQnRMVWp3WHhTTzR2Q1FGMXpJZEgybDhsU29PR3VWcFlQMHJkSndJbnowNUI4T3JSZEo3=
+ZWlQeUdqMjZyajA9LS1Mbm94cDBnbmw5bm1RMTU4WHk1ZC9nPT0=3D--1fdacc9d6d000b18898=
+92a6f07be07e3f16856b9" style=3D"font-size:11px;font-weight:400;color:#45506=
+5;text-decoration:none">toptal.com</a> =20
+      </td> =20
+    </tr></tbody></table> =20
+  </th></tr></table></th> =20
+</tr></tbody></table>
+
+  <img src=3D"https://api.segment.io/v1/pixel/track?data=3DeyJ3cml0ZUtleSI6=
+ImpuUzRRc0hPQ0FPZUc2WHZNRENqRDluOWJBY1E1M01iIiwidXNlcklkIjozNjM3NTMyLCJldmV=
+udCI6IkVtYWlsT3BlbmVkIiwicHJvcGVydGllcyI6eyJ0ZW1wbGF0ZU5hbWUiOiJTdGVwIDMgLS=
+BDb3JlIC0gTUJQIC0gSW50cm9kdWN0aW9uIiwidHJhY2tpbmdVVUlEIjoiZjQ1YjI4MTZjOWUyN=
+GVkMTRiNmVlNDFiYmY4MjdkYTcifX0=3D">
+</body>
+</html>
+
+--000000000000f331e805ea3934b9--

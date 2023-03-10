@@ -1,0 +1,566 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/9/2022 5:45:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-87DDV0G"
+  DTS:CreatorName="DESKTOP-87DDV0G\rocco"
+  DTS:DTSID="{1473F774-E1BB-4994-86E4-388F25EECC19}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="1_D_B2B_XLS_UserLogin_TT 1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{99917EB4-76F9-4BEC-B03E-13D4FE867644}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Devart PostgreSql Connection Manager]"
+      DTS:CreationName="DevartPostgreSql"
+      DTS:DTSID="{17F68C98-5F32-4319-8DE4-E7C4B45C2548}"
+      DTS:ObjectName="Devart PostgreSql Connection Manager">
+      <DTS:ObjectData>
+        <PostgreSqlConnectionManager
+          ConnectByProxy="False">
+          <ConnectionString>User Id=b2buser;Host=localhost;Database=b2becommerce</ConnectionString>
+        </PostgreSqlConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.IM_B2BECOMMERCE.b2bUserDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7B9EF137-DB35-4CDA-A75E-1ECAB83FFBAF}"
+      DTS:ObjectName="localhost.IM_B2BECOMMERCE.b2bUserDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=b2bUserDWH;Initial Catalog=IM_B2BECOMMERCE;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package1-{7B9EF137-DB35-4CDA-A75E-1ECAB83FFBAF}localhost.IM_B2BECOMMERCE.b2bUserDWH;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdfGUiUbn+Eyz2VGFHGOX2AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAVXkbH3YUVvf4iQnYzqfSLzf68Eo6fQSCQcD2oY7+KKwAAAAAOgAAAAAIAACAAAACFGLFzLM8s0uUVo0o3sWc4gxGwl2Hdo/C/rjVFcAe1uiAAAACQ116/D/1xNKImmprqCk8wx8V06RIMbwSIfIFAiRILaEAAAABEHka5r+z6Y6Y2Le+YPyrC1PsZsFaa5MZewLhGaja2brGNUzPAuAQBo54E1/rXjhisOTYi9hvMiP9gwA9nqAYj</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OrderStatus]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{53ECF109-EF5C-494C-AB8A-378F059038CC}"
+      DTS:ObjectName="OrderStatus">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\rocco\Documents\interview\toptal\Rocco-Caliandro\project\excelFiles\OrderStatus.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[UserLogin]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{6ebf4bec-8ff5-458c-852e-b1e6128f8df7}"
+      DTS:ObjectName="UserLogin">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\rocco\Documents\interview\toptal\Rocco-Caliandro\project\excelFiles\UserLogin.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\IMPORT USER LOGIN XLS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{21C54A8B-69A2-4B60-802B-3E5C7A99D8C1}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="IMPORT USER LOGIN XLS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\IMPORT USER LOGIN XLS\TRUNCATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1E6A7B53-6553-4FE8-8F31-A41DAAD2EF8D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TRUNCATE"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7B9EF137-DB35-4CDA-A75E-1ECAB83FFBAF}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE C_B2BDWH_TT_ORDER_STATUS" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{C26284C4-7B8D-49D2-BA9C-599911BF1CF6}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="TT_USER_LOGIN"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="TT_USER_LOGIN"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[D_B2BDWH_TT_USER_LOGIN]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.IM_B2BECOMMERCE.b2bUserDWH]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.IM_B2BECOMMERCE.b2bUserDWH]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].Columns[username]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="username"
+                          externalMetadataColumnId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[username]"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[username]" />
+                        <inputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].Columns[LastloginDate]"
+                          cachedDataType="date"
+                          cachedName="LastloginDate"
+                          externalMetadataColumnId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[LastloginDate]"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[LastloginDate]" />
+                        <inputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].Columns[device]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="device"
+                          externalMetadataColumnId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[device]"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[device]" />
+                        <inputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Country"
+                          externalMetadataColumnId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[Country]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[username]"
+                          dataType="wstr"
+                          length="255"
+                          name="username" />
+                        <externalMetadataColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[LastloginDate]"
+                          dataType="dbTimeStamp"
+                          name="LastloginDate" />
+                        <externalMetadataColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[device]"
+                          dataType="wstr"
+                          length="255"
+                          name="device" />
+                        <externalMetadataColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="USER LOGIN"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">UserLogin$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[UserLogin]"
+                      connectionManagerRefId="Package.ConnectionManagers[UserLogin]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[username]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].ExternalColumns[username]"
+                          length="255"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[username]"
+                          name="username"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[LastloginDate]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].ExternalColumns[LastloginDate]"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[LastloginDate]"
+                          name="LastloginDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[device]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].ExternalColumns[device]"
+                          length="255"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[device]"
+                          name="device"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[Country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].ExternalColumns[Country]"
+                          length="255"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].ExternalColumns[username]"
+                          dataType="wstr"
+                          length="255"
+                          name="username" />
+                        <externalMetadataColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].ExternalColumns[LastloginDate]"
+                          dataType="date"
+                          name="LastloginDate" />
+                        <externalMetadataColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].ExternalColumns[device]"
+                          dataType="wstr"
+                          length="255"
+                          name="device" />
+                        <externalMetadataColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          name="Country" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[username]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[username]"
+                          name="username" />
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[LastloginDate]"
+                          dataType="date"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[LastloginDate]"
+                          name="LastloginDate" />
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[device]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[device]"
+                          name="device" />
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[Country]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[Country]"
+                          name="Country" />
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN.Paths[Excel Source Output]"
+                  endId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN.Inputs[OLE DB Destination Input]"
+                  name="Excel Source Output"
+                  startId="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\IMPORT USER LOGIN XLS.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F4261118-25ED-4500-8A64-C525EBBD156F}"
+          DTS:From="Package\IMPORT USER LOGIN XLS\TRUNCATE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="167.666666666667,42"
+          Id="Package\IMPORT USER LOGIN XLS\TRUNCATE"
+          TopLeft="74.3333333333332,24.4504397325857" />
+        <NodeLayout
+          Size="166.666666666667,42"
+          Id="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN"
+          TopLeft="71.0000000000001,123.540551000307" />
+        <EdgeLayout
+          Id="Package\IMPORT USER LOGIN XLS.PrecedenceConstraints[Constraint]"
+          TopLeft="156.25,66.4504397325857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.0901112677213"
+              Start="0,0"
+              End="0,49.5901112677213">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5901112677213" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="361.333333333334,228"
+          Size="361.333333333334,271"
+          Id="Package\IMPORT USER LOGIN XLS"
+          TopLeft="269.333333333333,46.2972967675169" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166.666666666667,42"
+          Id="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN"
+          TopLeft="238.666666666667,203.432440297634" />
+        <NodeLayout
+          Size="144.666666666667,42"
+          Id="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN"
+          TopLeft="247,82.9189221247695" />
+        <EdgeLayout
+          Id="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN.Paths[Excel Source Output]"
+          TopLeft="320.666666666667,124.918922124769">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,78.5135181728645"
+              Start="0,0"
+              End="0,71.0135181728645">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.0135181728645" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\USER LOGIN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\IMPORT USER LOGIN XLS\TT_USER_LOGIN\TT_USER_LOGIN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

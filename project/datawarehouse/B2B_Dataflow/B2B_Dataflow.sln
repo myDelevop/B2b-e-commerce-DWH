@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "1_B2B_Import", "1_B2B_Import\1_B2B_Import.dtproj", "{6941AFBE-AD5E-4EAD-963A-E59115361288}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "2_BSB_Cleaning", "2_BSB_Cleaning\2_BSB_Cleaning.dtproj", "{83330862-C996-4E52-8A64-166C648F34A5}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "3_B2B_SA", "3_B2B_SA\3_B2B_SA.dtproj", "{EF7AA6B2-6EDA-4763-8E50-D7D0693D51BC}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "4_B2B_DM", "4_B2B_DM\4_B2B_DM.dtproj", "{27D9EFA6-2C62-4431-9AB6-B8FD7124DEDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6941AFBE-AD5E-4EAD-963A-E59115361288}.Development|Default.ActiveCfg = Development
+		{6941AFBE-AD5E-4EAD-963A-E59115361288}.Development|Default.Build.0 = Development
+		{83330862-C996-4E52-8A64-166C648F34A5}.Development|Default.ActiveCfg = Development
+		{83330862-C996-4E52-8A64-166C648F34A5}.Development|Default.Build.0 = Development
+		{EF7AA6B2-6EDA-4763-8E50-D7D0693D51BC}.Development|Default.ActiveCfg = Development
+		{EF7AA6B2-6EDA-4763-8E50-D7D0693D51BC}.Development|Default.Build.0 = Development
+		{27D9EFA6-2C62-4431-9AB6-B8FD7124DEDC}.Development|Default.ActiveCfg = Development
+		{27D9EFA6-2C62-4431-9AB6-B8FD7124DEDC}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C48DE572-8A1A-4FB1-9CB1-F4E8BD05C615}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>2_BSB_Cleaning</Name>
+    <LastWriteTime>2022-10-10T22:19:58.5605225Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>2_A_B2B_ServerLog_T.dtsx</Name>
+      <LastWriteTime>2022-10-09T19:49:32.4600271Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>2_B_B2B_ecommerceB2B_T.dtsx</Name>
+      <LastWriteTime>2022-10-10T18:45:55.545488Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>2_Z_ALL_B2B_Cleaning_T.dtsx</Name>
+      <LastWriteTime>2022-10-10T22:15:46.3973955Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>2_D_B2B_XLS_UserLogin_T.dtsx</Name>
+      <LastWriteTime>2022-10-10T22:23:28.90777Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>2_C_B2B_XLS_OrderStatus_T.dtsx</Name>
+      <LastWriteTime>2022-10-10T22:15:46.4180871Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/9/2022 7:13:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-87DDV0G"
+  DTS:CreatorName="DESKTOP-87DDV0G\rocco"
+  DTS:DTSID="{139CECA7-2EE5-4A16-AACF-72E803D8017B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="6153"
+  DTS:ObjectName="2_C_B2B_XLS_OrderStatus_T"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{39D96F6E-43DA-428C-9D34-300E98315B4D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.IM_B2BECOMMERCE.b2bUserDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BFBBDB0E-C150-4E7B-82A1-118F9DEFF94B}"
+      DTS:ObjectName="localhost.IM_B2BECOMMERCE.b2bUserDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;User ID=b2bUserDWH;Initial Catalog=IM_B2BECOMMERCE;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-Package2-{BFBBDB0E-C150-4E7B-82A1-118F9DEFF94B}localhost.IM_B2BECOMMERCE.b2bUserDWH;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdfGUiUbn+Eyz2VGFHGOX2AAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADG87jgDeUUh56g0HEY2ScbWSJg3eXldXqcqki8GvzvZgAAAAAOgAAAAAIAACAAAADRwzPWFkturFOe3oV4C7RVXc4P0h54JDkYQXWyA2oARiAAAAD6ixmiRXZWKRqr3mSLuo2wNpkruWho9i3p44nIJ0UDrkAAAACvJ4A0jPRzkM6rKUWfiAR6m3F9RK613BfHqAjSey+4nEJcDX1UMssp5EN+z/5FESFI3bJ6sqDfngj23a0PjJeB</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\T_ORDER_STATUS"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f82a09c8-23a5-464e-a9be-d8a0dcec6340}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="T_ORDER_STATUS"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BFBBDB0E-C150-4E7B-82A1-118F9DEFF94B}"
+          SQLTask:SqlStatementSource="/* Check for duplicates */&#xA;SELECT DISTINCT orderId&#xA;INTO #TEMP_DUPLICATES&#xA;FROM C_B2BDWH_TT_ORDER_STATUS&#xA;GROUP BY orderId&#xA;HAVING COUNT(*) &gt; 1;&#xA;&#xA;&#xA;INSERT INTO C_B2BDWH_E_ORDER_STATUS&#xA;SELECT DISTINCT orderId,&#xA;&#x9;CURRENT_TIMESTAMP,&#xA;&#x9;'Duplicate rows in Origin table'&#xA;FROM #TEMP_DUPLICATES;&#xA;&#xA;&#xA;IF OBJECT_ID(N'dbo.C_B2BDWH_T_ORDER_STATUS', N'U') IS NOT NULL&#xA;&#x9;DROP TABLE C_B2BDWH_T_ORDER_STATUS;&#xA;&#xA;SELECT *&#xA;INTO C_B2BDWH_T_ORDER_STATUS&#xA;FROM C_B2BDWH_TT_ORDER_STATUS&#xA;WHERE orderId NOT IN (&#xA;&#x9;SELECT orderId&#xA;&#x9;FROM #TEMP_DUPLICATES&#xA;);&#xA;&#xA;&#xA;DROP TABLE #TEMP_DUPLICATES;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\T_ORDER_STATUS"
+          TopLeft="345,147.48648986893" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
